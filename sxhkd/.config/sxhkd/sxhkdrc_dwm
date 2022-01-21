@@ -1,0 +1,82 @@
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd; notify-send -t 2000 -u normal "sxhkd restared"
+
+# terminal emulator
+super + Return
+	alacritty	
+
+# colorscheme
+
+super + shift + {c,p}
+	~/scripts/{dmenu/dmenu-wal-change.sh,dmenu/dmenu-kill-ps.sh}
+
+# dmenu
+super + shift + Return 
+	dmenu_run
+#super + {p,s,c}
+#	~/scripts/dmenu/dmenu-{powermenu,script,configs}.sh
+super + c
+	~/scripts/dwm/dwm-setscheme.sh
+super + t 
+	~/scripts/dmenu/dmenu-toolbox.sh
+super + s
+	~/scripts/dmenu/dmenu-firefox-helper.sh
+super + m
+	~/scripts/general/cambrinary.sh 
+super + f
+	~/scripts/dmenu/dmenu-directory-helper.sh
+
+# Rofi
+super + d
+	rofi -show drun -show-icons
+super + e
+	rofi -modi Emoji:~/.config/rofi/rofiemoji/rofiemoji.sh -show
+
+# scrot
+Print + {_,shift,ctrl} 
+	~/scripts/scrot/scrot.sh { ,-a,-s}
+
+# media keys
+XF86Audio{Play,Prev,Next} 
+	playerctl {play-pause,previous,next} || mocp -{G,r,f}
+XF86Audio{LowerVolume ,RaiseVolume}
+	~/scripts/general/volumectl.sh -{d,u}; pkill -RTMIN+10 dwmblocks; ~/scripts/dunst/dunst-volume.sh
+XF86AudioMute 
+	pactl set-sink-mute 0 toggle;pkill -RTMIN+10 dwmblocks; ~/scripts/dunst/dunst-volume.sh
+F{1,2,3} 
+	playerctl {play-pause,previous,next} || mocp -{G,r,f}
+
+# brightness
+XF86MonBrightness{Up,Down}
+	light {-A,-U} 10;pkill -RTMIN+11 dwmblocks; ~/scripts/dunst/dunst-backlight.sh
+
+# keymouse
+alt + {h,j,k,l,v,b,n}
+	~/Projects/python/keymouse/main.py {left,down,up,right,dclick,rclick,click}
+
+
+# dwm hotkeys
+
+## client actions
+super + shift + {k,j}
+	dwmc movestack {-,+}1
+super + {k,j}
+	dwmc focusstack {-,+}1
+super + ctrl + shift + {q,r}
+	dwmc {quit,self_restart}
+
+## toggles
+super + n
+	dwmc togglealttag
+# layouts
+super + shift + {d,b}
+	dwmc setlayoutex {7,3}
+super + shift + {period,comma}
+	dwmc cyclelayout {+,-}1
+#super + f
+#	dwmc fullscreen
+
+## resources
+super + shift + F5
+	dwmc xrdb

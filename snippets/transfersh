@@ -1,0 +1,14 @@
+upload() {
+  curl -s4 --upload-file $1 https://transfer.sh/$1
+}
+
+encupload() {
+  cat $1 | gpg -ac -o- | curl -X PUT --upload-file "-" https://transfer.sh/$1
+}
+
+decdownload() {
+  curl https://transfer.sh/$1/$2 | gpg -o- > ~/Downloads/$2
+}
+download() {
+  curl -s4 $1 -o $2
+}
