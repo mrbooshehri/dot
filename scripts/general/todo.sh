@@ -6,7 +6,16 @@ TODOS="$HOME/$(date +%Y-%B-%d).md"
 [[ ! -f "$TODOS" ]] && touch $TODOS && echo -e "$(date +%Y-%B-%d):" >> $TODOS
 
 case $1 in
-  "all") for file in $HOME/*; do cat $file; echo; done ;;
+  "all") 
+    for file in $HOME/*
+    do 
+      if [[ -s "$file" ]]; then
+        basename -- $file | cut -d. -f1  
+        cat $file | grep -v '^- \[x\]'
+        echo 
+      fi
+    done 
+    ;;
   "add") echo -e "- [ ] ${@: 2}" >> $TODOS ;;
   "remove") 
     LINE=$(grep -n "${@: 2}" $TODOS | cut -d ":" -f1)  
