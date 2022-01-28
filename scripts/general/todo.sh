@@ -32,14 +32,14 @@ case $1 in
     sed -i "${LINE}s/- \[x\]/- \[ \]/" $TODOS  ;;
   *) 
     echo "Simple terminal todo"
-    echo "Usage: todo [COMMAND] [TODO]"
+    echo "Usage: todo [COMMAND] [TASK]"
     echo
     echo "Commands:"
-    echo "add		add new todo"
-    echo "remove		remove a todo"
-    echo "done		mark todo as done by getting task number"
-    echo "undone		mark todo as undone by getting task number"
-    echo "list		list of today's todos"
-    echo "all		list of all undone todos from all days"
+    echo "  add		add new task"
+    echo "  remove	remove a task"
+    echo "  done		mark task as done by getting task number"
+    echo "  undone	mark task as undone by getting task number"
+    echo "  list		list of today's tasks"
+    echo "  all		list of all undone tasks from all days"
     ;;
 esac
