@@ -11,7 +11,7 @@ case $1 in
     do 
       if [[ -s "$file" ]]; then
         basename -- $file | cut -d. -f1  
-        cat -n $file | grep -v '^- \[x\]'
+        cat -n $file | grep -v '\- \[x\]'
         echo 
       fi
     done 
