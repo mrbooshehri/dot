@@ -3,7 +3,7 @@
 HOME="$NOTES/Todo"
 TODOS="$HOME/$(date +%Y-%B-%d).md"
 [[ ! -d "$HOME"  ]] && mkdir -p $HOME
-[[ ! -f "$TODOS" ]] && touch $TODOS && echo -e "$(date +%Y-%B-%d):" >> $TODOS
+[[ ! -f "$TODOS" ]] && touch $TODOS
 
 case $1 in
   "all") 
