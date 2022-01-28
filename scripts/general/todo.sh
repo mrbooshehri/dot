@@ -11,7 +11,7 @@ case $1 in
     do 
       if [[ -s "$file" ]]; then
         basename -- $file | cut -d. -f1  
-        cat $file | grep -v '^- \[x\]'
+        cat -n $file | grep -v '^- \[x\]'
         echo 
       fi
     done 
@@ -20,12 +20,15 @@ case $1 in
   "remove") 
     LINE=$(grep -n "${@: 2}" $TODOS | cut -d ":" -f1)  
     sed -i "${LINE}d" $TODOS  ;;
-  "list") cat $TODOS;;
+  "list") 
+    date +%Y-%B-%d
+    cat -n $TODOS
+    ;;
   "done") 
-    LINE=$(grep -n "${@: 2}" $TODOS | cut -d ":" -f1)  
+    LINE="$2"
     sed -i "${LINE}s/- \[ \]/- \[x\]/" $TODOS  ;;
   "undone") 
-    LINE=$(grep -n "${@: 2}" $TODOS | cut -d ":" -f1)  
+    LINE="$2"
     sed -i "${LINE}s/- \[x\]/- \[ \]/" $TODOS  ;;
   *) 
     echo "Simple terminal todo"
@@ -34,8 +37,8 @@ case $1 in
     echo "Commands:"
     echo "add		add new todo"
     echo "remove		remove a todo"
-    echo "done		mark todo as done"
-    echo "undone		mark todo as undone"
+    echo "done		mark todo as done by getting task number"
+    echo "undone		mark todo as undone by getting task number"
     echo "list		list of today's todos"
     echo "all		list of all undone todos from all days"
     ;;
