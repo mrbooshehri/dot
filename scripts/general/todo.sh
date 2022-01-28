@@ -18,7 +18,7 @@ case $1 in
     ;;
   "add") echo -e "- [ ] ${@: 2}" >> $TODOS ;;
   "remove") 
-    LINE=$(grep -n "${@: 2}" $TODOS | cut -d ":" -f1)  
+    LINE="$2"
     sed -i "${LINE}d" $TODOS  ;;
   "list") 
     date +%Y-%B-%d
