@@ -9,23 +9,23 @@ super + Return
 # colorscheme
 
 super + shift + {c,p}
-	~/scripts/{dmenu/dmenu-wal-change.sh,dmenu/dmenu-kill-ps.sh}
+	$SCRIPTS/{dmenu/dmenu-wal-change.sh,dmenu/dmenu-kill-ps.sh}
 
 # dmenu
 super + shift + Return 
 	dmenu_run
 #super + {p,s,c}
-#	~/scripts/dmenu/dmenu-{powermenu,script,configs}.sh
+#	$SCRIPTS/dmenu/dmenu-{powermenu,script,configs}.sh
 super + c
-	~/scripts/dwm/dwm-setscheme.sh
+	$SCRIPTS/dwm/dwm-setscheme.sh
 super + t 
-	~/scripts/dmenu/dmenu-toolbox.sh
+	$SCRIPTS/dmenu/dmenu-toolbox.sh
 super + s
-	~/scripts/dmenu/dmenu-firefox-helper.sh
+	$SCRIPTS/dmenu/dmenu-firefox-helper.sh
 super + m
-	~/scripts/general/cambrinary.sh 
+	$SCRIPTS/general/cambrinary.sh 
 super + f
-	~/scripts/dmenu/dmenu-directory-helper.sh
+	$SCRIPTS/dmenu/dmenu-directory-helper.sh
 
 # Rofi
 super + d
@@ -35,21 +35,21 @@ super + e
 
 # scrot
 Print + {_,shift,ctrl} 
-	~/scripts/scrot/scrot.sh { ,-a,-s}
+	$SCRIPTS/scrot/scrot.sh { ,-a,-s}
 
 # media keys
 XF86Audio{Play,Prev,Next} 
 	playerctl {play-pause,previous,next} || mocp -{G,r,f}
 XF86Audio{LowerVolume ,RaiseVolume}
-	~/scripts/general/volumectl.sh -{d,u}; pkill -RTMIN+10 dwmblocks; ~/scripts/dunst/dunst-volume.sh
+	$SCRIPTS/general/volumectl.sh -{d,u}; pkill -RTMIN+10 dwmblocks; $SCRIPTS/dunst/dunst-volume.sh
 XF86AudioMute 
-	pactl set-sink-mute 0 toggle;pkill -RTMIN+10 dwmblocks; ~/scripts/dunst/dunst-volume.sh
+	pactl set-sink-mute 0 toggle;pkill -RTMIN+10 dwmblocks; $SCRIPTS/dunst/dunst-volume.sh
 F{1,2,3} 
 	playerctl {play-pause,previous,next} || mocp -{G,r,f}
 
 # brightness
 XF86MonBrightness{Up,Down}
-	light {-A,-U} 10;pkill -RTMIN+11 dwmblocks; ~/scripts/dunst/dunst-backlight.sh
+	light {-A,-U} 10;pkill -RTMIN+11 dwmblocks; $SCRIPTS/dunst/dunst-backlight.sh
 
 # keymouse
 alt + {h,j,k,l,v,b,n}
