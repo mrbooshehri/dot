@@ -100,9 +100,10 @@ map <C-p> "+p
 
 
 "---------------------------------------- aliases
-nmap gm :LivedownToggle<CR>
+"nmap gm :LivedownToggle<CR>
 nmap ch :ColorHighlight<CR>
-
+" markdonw preview
+nnoremap <silent>  gm :execute 'silent !pandoc % -t pdf \| zathura - &' \| redraw<CR>
 
 "---------------------------------------- coc keybindings
 " Use <Tab> and <S-Tab> to navigate the completion list
