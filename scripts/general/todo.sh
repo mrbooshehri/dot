@@ -9,9 +9,9 @@ case $1 in
   "all") 
     for file in $HOME/*
     do 
-      if [[ -s "$file" ]]; then
+      if [[ -s "$file" && $(grep -c '\- \[ \]' $file) == 1 ]]; then
         basename -- $file | cut -d. -f1  
-        cat -n $file | grep -v '\- \[x\]'
+        grep '\- \[ \]' $file
         echo 
       fi
     done 
