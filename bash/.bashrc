@@ -246,11 +246,11 @@ extr()
   fi
 }
 
-source ~/scripts/bash/bashFunctions/dirFileHelper	# Directory and file helper
-source ~/scripts/bash/bashFunctions/cheat		# Cheat.sh
-source ~/scripts/bash/bashFunctions/transfersh		# transfersh
-source ~/scripts/bash/bashFunctions/cambinary		# seach in cambridge dictionary
-source ~/scripts/bash/bashFunctions/haste		# hastebin online clipboard
+source $DOTFILES/snippets/dirFileHelper	# Directory and file helper
+source $DOTFILES/snippets/cheat		# Cheat.sh
+source $DOTFILES/snippets/transfersh		# transfersh
+source $DOTFILES/snippets/cambinary		# seach in cambridge dictionary
+source $DOTFILES/snippets/haste		# hastebin online clipboard
 
 # ------------- source external dependencies / completion ------------
 
