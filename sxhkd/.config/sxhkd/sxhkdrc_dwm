@@ -9,23 +9,23 @@ super + Return
 # colorscheme
 
 super + shift + {c,p}
-	$SCRIPTS/{dmenu/dmenu-wal-change.sh,dmenu/dmenu-kill-ps.sh}
+	~/Repos/github.com/mrbooshehri/dot/scripts/{dmenu-wal-change,dmenu-kill-ps}
 
 # dmenu
 super + shift + Return 
 	dmenu_run
 #super + {p,s,c}
-#	$SCRIPTS/dmenu/dmenu-{powermenu,script,configs}.sh
+#	/dmenu/dmenu-{powermenu,script,configs}.sh
 super + c
-	$SCRIPTS/dwm/dwm-setscheme.sh
-super + t 
-	$SCRIPTS/dmenu/dmenu-toolbox.sh
+	~/Repos/github.com/mrbooshehri/dot/scripts/dwm-setscheme
+super + t
+	~/Repos/github.com/mrbooshehri/dot/scripts/dmenu-toolbox
 super + s
-	$SCRIPTS/dmenu/dmenu-firefox-helper.sh
+	~/Repos/github.com/mrbooshehri/dot/scripts/dmenu-firefox-helper
 super + m
-	$SCRIPTS/general/cambrinary.sh 
+	~/Repos/github.com/mrbooshehri/dot/scripts/cambrinary
 super + f
-	$SCRIPTS/dmenu/dmenu-directory-helper.sh
+	~/Repos/github.com/mrbooshehri/dot/scripts/dmenu-directory-helper
 
 # Rofi
 super + d
@@ -35,21 +35,21 @@ super + e
 
 # scrot
 Print + {_,shift,ctrl} 
-	$SCRIPTS/scrot/scrot.sh { ,-a,-s}
+	~/Repos/github.com/mrbooshehri/dot/scripts/scrot { ,-a,-s}
 
 # media keys
 XF86Audio{Play,Prev,Next} 
 	playerctl {play-pause,previous,next} || mocp -{G,r,f}
 XF86Audio{LowerVolume ,RaiseVolume}
-	$SCRIPTS/general/volumectl.sh -{d,u}; pkill -RTMIN+10 dwmblocks; $SCRIPTS/dunst/dunst-volume.sh
+	/general/v~/Repos/github.com/mrbooshehri/dot/scripts/olumectl.sh -{d,u}; pkill -RTMIN+10 dwmblocks; ~/Repos/github.com/mrbooshehri/dot/scripts//dunst-volume
 XF86AudioMute 
-	pactl set-sink-mute 0 toggle;pkill -RTMIN+10 dwmblocks; $SCRIPTS/dunst/dunst-volume.sh
+	pactl set-sink-mute 0 toggle;pkill -RTMIN+10 dwmblocks; ~/Repos/github.com/mrbooshehri/dot/scripts/dunst-volume
 F{1,2,3} 
 	playerctl {play-pause,previous,next} || mocp -{G,r,f}
 
 # brightness
 XF86MonBrightness{Up,Down}
-	light {-A,-U} 10;pkill -RTMIN+11 dwmblocks; $SCRIPTS/dunst/dunst-backlight.sh
+	light {-A,-U} 10;pkill -RTMIN+11 dwmblocks; ~/Repos/github.com/mrbooshehri/dot/scripts/dunst-backlight
 
 # keymouse
 alt + {h,j,k,l,v,b,n}
