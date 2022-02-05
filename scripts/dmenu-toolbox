@@ -28,39 +28,39 @@ CHOICE=$(printf '%s\n' "${ARR[@]}" | dmenu)
 
 case $CHOICE in
   "Dictionary")
-    ~/scripts/dmenu/dmenu-dict.sh ;;
+    $SCRIPTS/dmenu/dmenu-dict.sh ;;
 #  "Colorscheme")
-#    ~/scripts/dmenu/dmenu-wal-colorscheme.sh ;;
+#    $SCRIPTS/dmenu/dmenu-wal-colorscheme.sh ;;
   "Pirokit")
-    ~/.src/pirokit/pirokit ;;
+    $GHREPOS/pirokit/pirokit ;;
   "Ytfzf")
-    ~/.src/ytfzf/ytfzf -D ;;
+    $GHREPOS/ytfzf/ytfzf -D ;;
   "Lyrics")
-    ~/scripts/dmenu/dmenu-lyrics.sh;;
+    $SCRIPTS/dmenu/dmenu-lyrics.sh;;
   "Mitype")
-    ~/scripts/general/type-test.sh;;
+    $SCRIPTS/general/type-test.sh;;
   "Redyt")
-    ~/.src/redyt/redyt ;;
+    $GHREPOS/redyt/redyt ;;
   "dradio")
     dradio -d ;;
   "Ambiant Music")
-    ~/scripts/dmenu/dmenu-ambiant-music.sh ;;
+    $SCRIPTS/dmenu/dmenu-ambiant-music.sh ;;
   "obs-remote")
-    ~/scripts/dmenu/dmenu-obs.sh ;;
+    $SCRIPTS/dmenu/dmenu-obs.sh ;;
   "Reddit-wall")
-    ~/scripts/general/waldl.sh ;;
+    $SCRIPTS/general/waldl.sh ;;
   "Wallhaven-wall")
-    ~/scripts/dmenu/dmenu-wallget.sh ;;
+    $SCRIPTS/dmenu/dmenu-wallget.sh ;;
   "Change-wall")
-    ~/scripts/dmenu/dmenu-wal-change.sh ;;
+    $SCRIPTS/dmenu/dmenu-wal-change.sh ;;
   "Jupyter Lab")
-    ~/scripts/dmenu/dmenu-jupyter-notebook.sh ;;
+    $SCRIPTS/dmenu/dmenu-jupyter-notebook.sh ;;
   "Passgen")
     ~/Projects/python/pass_generator/passgen.py -c 
     notify-send "Passgen" "Password copied in your clipboard"
     ;;
   "Usergen")
-    ~/scripts/bash/genuname.sh -n | xsel -bi
+    $SCRIPTS/bash/genuname.sh -n | xsel -bi
     notify-send "Genunam" "Username copied in your clipboard"
     ;;
 esac

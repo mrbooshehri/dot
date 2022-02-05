@@ -1,1 +1,12 @@
-general/clonerepo
+#! /bin/bash
+repo="$1"
+repo="${repo#https://github.com/}"
+user="${repo%%/*}"
+name="${repo##*/}"
+userd="$REPOS/github.com/$user"
+path="$userd/$name"
+[[ -d "$path" ]] && cd "$path" && return
+mkdir -p "$userd"
+cd "$userd"
+git clone "https://github.com/$user/$name.git"
+cd "$name"

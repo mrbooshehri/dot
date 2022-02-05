@@ -11,7 +11,7 @@ case $choice in
     thunar "$dir_home/$select"
     ;;
   "/mnt") 
-    dir_home=/mnt/1TB
+    dir_home=$HDD
     select=$(find $dir_home -maxdepth 3 -type d 2>/dev/null | cut -d "/" -f 4- | tail -n +2 | sort | dmenu -l 15) 
     [ -z "$select" ] && exit 1
     thunar "$dir_home/$select"

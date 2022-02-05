@@ -13,7 +13,7 @@ done
 
 # Default directories
 dir_conf="${XDG_CONFIG_HOME:-$HOME/.config}/wallget"
-dir_repo="/mnt/1TB/Pictures/Wallpaper.repo"
+dir_repo="$HDD/Pictures/Wallpaper.repo"
 dir_tmp="/tmp/wallpaper"
 
 # API Key

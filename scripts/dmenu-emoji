@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-emoji=$(cat ~/scripts/dmenu/emojis.txt | dmenu -p "Emoji picker:")
+emoji=$(cat $SCRIPTS/emojis.txt | dmenu -p "Emoji picker:")
 
 [ -z "$emoji" ] && exit 1
 

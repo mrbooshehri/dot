@@ -15,27 +15,27 @@ choice=$(printf "%s\n" "${themes[@]}" | dmenu)
 case $choice in
   "dracula")
     wal --theme base16-dracula 
-    ffcss=~/.dotfiles/firefox-custom-css/waterfall-dracula.css
+    ffcss=$DOTFILES/firefox-custom-css/waterfall-dracula.css
     ;;
   "gruvbox-dark")
     wal --theme base16-gruvbox-medium 
-    ffcss=~/.dotfiles/firefox-custom-css/waterfall-gruvbox-dark.css
+    ffcss=$DOTFILES/firefox-custom-css/waterfall-gruvbox-dark.css
     ;;
   "gruvbox-light")
     wal --theme base16-gruvbox-medium -l 
-    ffcss=~/.dotfiles/firefox-custom-css/waterfall-gruvbox-light.css
+    ffcss=$DOTFILES/firefox-custom-css/waterfall-gruvbox-light.css
     isDark=0 ;;
   "nord")
     wal --theme base16-nord
-    ffcss=~/.dotfiles/firefox-custom-css/waterfall-nord.css
+    ffcss=$DOTFILES/firefox-custom-css/waterfall-nord.css
     ;;
   "solarized-dark")
     wal --theme base16-solarized 
-    ffcss=~/.dotfiles/firefox-custom-css/waterfall-solarized-dark.css
+    ffcss=$DOTFILES/firefox-custom-css/waterfall-solarized-dark.css
     ;;
   "solarized-light")
     wal --theme base16-solarized -l
-    ffcss=~/.dotfiles/firefox-custom-css/waterfall-solarized-light.css
+    ffcss=$DOTFILES/firefox-custom-css/waterfall-solarized-light.css
     isDark=0 ;;
    *)
     notify-send "Colorscheme" "Select valid colorscheme"
@@ -44,15 +44,15 @@ esac
 
 
 # allacrity
-bash ~/.src/alacritty-color-export/script.sh
+bash $REPOS/github.com/egeesin/alacritty-color-export/script.sh
 ln -sf ~/.cache/wal/light_colors.yaml ~/.config/colorls
 ln -sf ~/.cache/wal/dark_colors.yaml ~/.config/colorls
 
 # zathura
-bash ~/.src/Zathura-Pywal/install.sh
+bash $REPOS/github.com/GideonWolfe/Zathura-Pywal/install.sh
 
 # telegram
-bash ~/.src/telegram-palette-gen/telegram-palette-gen --wal
+bash $REPOS/github.com/agnipau/telegram-palette-gen/telegram-palette-gen --wal
 
 # xresources
 cat ~/.cache/wal/xmenu >> ~/.cache/wal/colors.Xresources
@@ -79,7 +79,7 @@ case $isDark in
     echo "theme=Matchama-Light-Aliz" >> $kde_conf 
     ln -sf ~/.cache/wal/conkyrc_one_line_light ~/.conkyrc
     ln -sf ~/.cache/wal/rofi-light ~/.config/rofi/config.rasi
-    ln -sf ~/.dotfiles/firefox-custom-css/waterfall-light.css ~/.mozilla/firefox/6bfttlg7.default-release/chrome/userChrome.css
+    ln -sf $DOTFILES/firefox-custom-css/waterfall-light.css ~/.mozilla/firefox/6bfttlg7.default-release/chrome/userChrome.css
     ;;
   1)
     echo "gtk-theme-name=Matcha-dark-aliz" >> $gtk_conf 
