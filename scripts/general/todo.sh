@@ -32,6 +32,7 @@ case $1 in
   "undone") 
     LINE="$2"
     sed -i "${LINE}s/- \[x\]/- \[ \]/" $TODOS  ;;
+  "clean") find $HOME -type f -empty -exec rm {} + ;; 
   *) 
     echo "Simple terminal todo"
     echo "Usage: todo [COMMAND] [TASK]"
