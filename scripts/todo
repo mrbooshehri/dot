@@ -1,4 +1,4 @@
-#/bin/bash
+#! /bin/bash
 
 HOME="$NOTES/Todo"
 TODOS="$HOME/$(date +%Y-%B-%d).md"
