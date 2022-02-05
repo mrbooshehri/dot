@@ -63,7 +63,7 @@ super + shift + m
 	bspc desktop -l next
 
 # send the newest marked node to the newest preselected node
-super + shiift + y
+super + shift + y
 	bspc node newest.marked.local -n newest.!automatic.local
 
 # swap the current node and the biggest window
