@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # name		icon
 # volume		
@@ -19,5 +19,5 @@ if [ "$mute" != "false" ] ;then
   icon=""
 fi
 
-$SCRIPTS/dunst-notify-send.sh -r  "$(pgrep dunst)" "$icon  $vol"
+$SCRIPTS/notify-send -r  "$(pgrep dunst)" "$icon  $vol"
 

@@ -27,40 +27,26 @@ ARR+=("Usergen")
 CHOICE=$(printf '%s\n' "${ARR[@]}" | dmenu)
 
 case $CHOICE in
-  "Dictionary")
-    $SCRIPTS/dmenu/dmenu-dict.sh ;;
-#  "Colorscheme")
-#    $SCRIPTS/dmenu/dmenu-wal-colorscheme.sh ;;
-  "Pirokit")
-    $GHREPOS/pirokit/pirokit ;;
-  "Ytfzf")
-    $GHREPOS/ytfzf/ytfzf -D ;;
-  "Lyrics")
-    $SCRIPTS/dmenu/dmenu-lyrics.sh;;
-  "Mitype")
-    $SCRIPTS/general/type-test.sh;;
-  "Redyt")
-    $GHREPOS/redyt/redyt ;;
-  "dradio")
-    dradio -d ;;
-  "Ambiant Music")
-    $SCRIPTS/dmenu/dmenu-ambiant-music.sh ;;
-  "obs-remote")
-    $SCRIPTS/dmenu/dmenu-obs.sh ;;
-  "Reddit-wall")
-    $SCRIPTS/general/waldl.sh ;;
-  "Wallhaven-wall")
-    $SCRIPTS/dmenu/dmenu-wallget.sh ;;
-  "Change-wall")
-    $SCRIPTS/dmenu/dmenu-wal-change.sh ;;
-  "Jupyter Lab")
-    $SCRIPTS/dmenu/dmenu-jupyter-notebook.sh ;;
+  "Dictionary") dmenu-dict ;;
+#  "Colorscheme") dmenu-wal-colorscheme ;;
+  "Pirokit") $GHREPOS/pirokit/pirokit ;;
+  "Ytfzf") $GHREPOS/ytfzf/ytfzf -D ;;
+  "Lyrics") dmenu-lyrics;;
+  "Mitype") type-test;;
+  "Redyt") $GHREPOS/redyt/redyt ;;
+  "dradio") dradio -d ;;
+  "Ambiant Music") dmenu-ambiant-music ;;
+  "obs-remote") dmenu-obs ;;
+  "Reddit-wall") waldl ;;
+  "Wallhaven-wall") dmenu-wallget ;;
+  "Change-wall") dmenu-wal-change ;;
+  "Jupyter Lab") dmenu-jupyter-notebook ;;
   "Passgen")
     ~/Projects/python/pass_generator/passgen.py -c 
     notify-send "Passgen" "Password copied in your clipboard"
     ;;
   "Usergen")
-    $SCRIPTS/bash/genuname.sh -n | xsel -bi
+    genuname -n | xsel -bi
     notify-send "Genunam" "Username copied in your clipboard"
     ;;
 esac

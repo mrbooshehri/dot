@@ -49,7 +49,7 @@ ln -sf ~/.cache/wal/light_colors.yaml ~/.config/colorls
 ln -sf ~/.cache/wal/dark_colors.yaml ~/.config/colorls
 
 # zathura
-bash $REPOS/github.com/GideonWolfe/Zathura-Pywal/install.sh
+bash "$REPOS/github.com/GideonWolfe/Zathura-Pywal/install.sh"
 
 # telegram
 bash $REPOS/github.com/agnipau/telegram-palette-gen/telegram-palette-gen --wal
@@ -79,7 +79,7 @@ case $isDark in
     echo "theme=Matchama-Light-Aliz" >> $kde_conf 
     ln -sf ~/.cache/wal/conkyrc_one_line_light ~/.conkyrc
     ln -sf ~/.cache/wal/rofi-light ~/.config/rofi/config.rasi
-    ln -sf $DOTFILES/firefox-custom-css/waterfall-light.css ~/.mozilla/firefox/6bfttlg7.default-release/chrome/userChrome.css
+    #ln -sf $DOTFILES/firefox-custom-css/waterfall-light.css ~/.mozilla/firefox/6bfttlg7.default-release/chrome/userChrome.css
     ;;
   1)
     echo "gtk-theme-name=Matcha-dark-aliz" >> $gtk_conf 
