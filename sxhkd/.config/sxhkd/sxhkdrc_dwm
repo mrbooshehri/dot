@@ -41,7 +41,7 @@ Print + {_,shift,ctrl}
 XF86Audio{Play,Prev,Next} 
 	playerctl {play-pause,previous,next} || mocp -{G,r,f}
 XF86Audio{LowerVolume ,RaiseVolume}
-	/general/v~/Repos/github.com/mrbooshehri/dot/scripts/olumectl.sh -{d,u}; pkill -RTMIN+10 dwmblocks; ~/Repos/github.com/mrbooshehri/dot/scripts//dunst-volume
+	~/Repos/github.com/mrbooshehri/dot/scripts/olumectl.sh -{d,u}; pkill -RTMIN+10 dwmblocks; ~/Repos/github.com/mrbooshehri/dot/scripts/dunst-volume
 XF86AudioMute 
 	pactl set-sink-mute 0 toggle;pkill -RTMIN+10 dwmblocks; ~/Repos/github.com/mrbooshehri/dot/scripts/dunst-volume
 F{1,2,3} 
