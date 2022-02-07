@@ -55,6 +55,8 @@ export EDITOR_PREFIX=vi
 export GOPRIVATE="github.com/$GITUSER/*,gitlab.com/$GITUSER/*"
 export GOPATH="$HOME/.local/share/go"
 export GOBIN="$HOME/.local/bin"
+export GOPATH="$HOME/.local/share/go"
+export GOBIN="$HOME/.local/bin"
 export LESS_TERMCAP_mb="[35m" # magenta
 export LESS_TERMCAP_md="[33m" # yellow
 export LESS_TERMCAP_me="" # "0m"
@@ -198,8 +200,6 @@ alias grep="grep -P"
 alias autoremove="sudo pacman -Rcns $(pacman -Qdtq)"
 alias ..="cd .."
 alias :q="exit"
-alias rndman="~/scripts/bash/rndman.sh"
-alias findman="~/scripts/bash/findman.sh"
 
 _have vim && alias vi=vim
 
