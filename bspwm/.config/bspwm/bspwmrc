@@ -24,10 +24,13 @@ bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
 bspc rule -a firefox desktop='^2'
-bspc rule -a mplayer2 state=floating
-bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
-
+bspc rule -a SpeedCrunch state=floating
+bspc rule -a VirtualBox Manager state=floating
+bspc rule -a Blueman-manager state=floating
+bspc rule -a Pavucontrol state=floating
+bspc rule -a Tor Browser desktop='^5'
+bspc rule -a TelegramDesktop desktop='^6'
 
 nm-applet &
 blueman-applet &
