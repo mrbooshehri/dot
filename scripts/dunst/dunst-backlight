@@ -2,10 +2,9 @@
 
 # name		icon
 # light		
-
+SCRIPTS=/home/mhmd/Repos/github.com/mrbooshehri/dot/scripts
 light=$(light -G | cut -d '.' -f 1)
 icon=""
 
-
-$SCRIPTS/dunst/notify-send -r  "$(pgrep dunst)" "$icon  $light"
+$SCRIPTS/dunst/notify-send -r "$(pgrep -x dunst)" "$icon  $light"
 
