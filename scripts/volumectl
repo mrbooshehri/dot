@@ -6,10 +6,6 @@ maxvol=100
 vol=$(pamixer --get-volume)
 
 case $1 in
-  -u)
-    if [ $vol -lt $maxvol ];then  
-      pactl set-sink-volume 0 +5%
-    fi
-    ;;
+  -u) [[ "$vol" -lt "$maxvol" ]] &&  pactl set-sink-volume 0 +5% ;;
   -d) pactl set-sink-volume 0 -5% ;;
 esac
