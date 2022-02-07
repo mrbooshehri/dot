@@ -56,11 +56,10 @@ set number                              " Line numbers
 set background=dark                     " tell vim what the background color looks like
 set updatetime=300                      " Faster completion
 set timeoutlen=500                      " By default timeoutlen is 1000 ms
-set formatoptions=cro			" Stop newline continution of comments
+set formatoptions=cro										" Stop newline continution of comments
 set clipboard=unnamedplus               " Copy paste between vim and everything else
 set laststatus=2                        " Always display the status line
 set noshowmode                          " We don't need to see things like -- INSERT -- anymore
-
 "---------------------------------------- synastic config
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -98,6 +97,11 @@ let g:airline_right_sep = ''
 vnoremap <C-c> "+y
 map <C-p> "+p
 
+"---------------------------------------- cursor
+let &t_ti.="\e[1 q"
+let &t_SI.="\e[5 q"
+let &t_EI.="\e[1 q"
+let &t_te.="\e[0 q"
 
 "---------------------------------------- aliases
 "nmap gm :LivedownToggle<CR>
