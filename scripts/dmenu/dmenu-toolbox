@@ -25,22 +25,24 @@ ARR+=("Passgen")
 ARR+=("Usergen")
 
 CHOICE=$(printf '%s\n' "${ARR[@]}" | dmenu)
+GHREPOS=/home/mhmd/Repos/github.com/mrbooshehri
+DMENUSCRIPTS=/home/mhmd/Repos/github.com/mrbooshehri/dot/scripts/dmenu
 
 case $CHOICE in
-  "Dictionary") dmenu-dict ;;
+  "Dictionary") $DMENUSCRIPTS/dmenu-dict ;;
 #  "Colorscheme") dmenu-wal-colorscheme ;;
   "Pirokit") $GHREPOS/pirokit/pirokit ;;
   "Ytfzf") $GHREPOS/ytfzf/ytfzf -D ;;
-  "Lyrics") dmenu-lyrics;;
-  "Mitype") type-test;;
+  "Lyrics") $DMENUSCRIPTS/dmenu-lyrics;;
+  "Mitype") $DMENUSCRIPTS/type-test;;
   "Redyt") $GHREPOS/redyt/redyt ;;
   "dradio") dradio -d ;;
-  "Ambiant Music") dmenu-ambiant-music ;;
-  "obs-remote") dmenu-obs ;;
-  "Reddit-wall") waldl ;;
-  "Wallhaven-wall") dmenu-wallget ;;
-  "Change-wall") dmenu-wal-change ;;
-  "Jupyter Lab") dmenu-jupyter-notebook ;;
+  "Ambiant Music") $DMENUSCRIPTS/dmenu-ambiant-music ;;
+  "obs-remote") $DMENUSCRIPTS/dmenu-obs ;;
+  "Reddit-wall") $DMENUSCRIPTS/waldl ;;
+  "Wallhaven-wall") $DMENUSCRIPTS/dmenu-wallget ;;
+  "Change-wall") $DMENUSCRIPTS/dmenu-wal-change ;;
+  "Jupyter Lab") $DMENUSCRIPTS/dmenu-jupyter-notebook ;;
   "Passgen")
     ~/Projects/python/pass_generator/passgen.py -c 
     notify-send "Passgen" "Password copied in your clipboard"
