@@ -15,16 +15,39 @@ super + Escape
 #
 
 super + c
-	/home/mhmd/Repos/github.com/mrbooshehri/dot/scripts/dwm/dwm-setscheme
-super + shift + c
-	/home/mhmd/Repos/github.com/mrbooshehri/dot/scripts/wallchanger
-# quit/restart bspwm
-super + shift + control {q,r}
-	bspc {quit,wm -r}
+	~/Repos/github.com/mrbooshehri/dot/scripts/dwm/dwm-setscheme
+# Rofi
+super + d
+	rofi -show drun -show-icons
+super + e
+	rofi -modi Emoji:~/.config/rofi/rofiemoji/rofiemoji.sh -show
+
+
+# scrot
+Print + {_,shift,ctrl}
+  ~/Repos/github.com/mrbooshehri/dot/scripts/scrot { ,-a,-s}
+
+# media keys
+XF86Audio{Play,Prev,Next}
+  playerctl {play-pause,previous,next} || mocp -{G,r,f}
+XF86Audio{LowerVolume ,RaiseVolume}
+	~/Repos/github.com/mrbooshehri/dot/scripts/volumectl -{d,u}; ~/Repos/github.com/mrbooshehri/dot/scripts/dunst/dunst-volume
+XF86AudioMute
+  pactl set-sink-mute 0 toggle; ~/Repos/github.com/mrbooshehri/dot/scripts/dunst/dunst-volume
+
+# brightness
+XF86MonBrightness{Up,Down}
+  light {-A,-U} 10; ~/Repos/github.com/mrbooshehri/dot/scripts/dunst/dunst-backlight
+
+
 
 # close and kill
-super + q
+super +shift + q
 	bspc node -c
+
+# quit/restart bspwm
+super + alt + {q,r}
+	bspc {quit,wm -r}
 
 # alternate between the tiled and monocle layout
 super + m
@@ -43,7 +66,7 @@ super + g
 #
 
 # set the window state
-super + {t,shift + t,s,f}
+super + {t,shift + t,space,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # set the node flags
