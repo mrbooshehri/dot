@@ -220,7 +220,11 @@ clonerepo() {
   [[ -d "$path" ]] && cd "$path" && return
   mkdir -p "$userd"
   cd "$userd"
-  git clone "https://github.com/$user/$name.git"
+  if [[ "$user" == "$GITUSER" ]]; then
+    git clone "git@github.com:$GITUSER/$name.git"
+  else 
+    git clone "https://github.com/$user/$name.git"
+  fi
   cd "$name"
 } && export -f clonerepo
 
