@@ -57,7 +57,7 @@ font-2 = siji:pixelsize=10;1
 
 modules-left = bspwm
 modules-center = mpd
-modules-right = xbacklight pulseaudio xkeyboard wlan battery date powermenu
+modules-right = xbacklight pulseaudio xkeyboard battery date powermenu
 
 tray-position = right
 tray-padding = 2
