@@ -1,0 +1,34 @@
+#! /bin/sh
+
+pgrep -x sxhkd > /dev/null || sxhkd &
+pgrep -x picom > /dev/null || picom -f -D 6 &
+pgerp -x conky > /dev/null || conky > /dev/null 2>&1 &
+pgerp -x redshift > /dev/null || redshift -c ~/.config/redshift/redshift.conf > /dev/null 2>&1 &
+
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+feh --bg-fill --randomize /mnt/1TB/Pictures/Wallpaper.repo/*
+wmname LG3D
+
+bspc monitor -d I II III IV V VI VII VIII IX X
+
+
+
+bspc config border_width         2
+bspc config window_gap           4
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a Chromium desktop='^2'
+bspc rule -a mplayer2 state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
+
+
+nm-applet &
+blueman-applet &
+pywalfox start &
+safeeyes &
+syncthing &
