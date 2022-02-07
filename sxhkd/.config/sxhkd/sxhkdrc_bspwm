@@ -15,7 +15,7 @@ super + Escape
 #
 
 super + c
-	~/Repos/github.com/mrbooshehri/dot/scripts/dwm/dwm-setscheme
+	~/Repos/github.com/mrbooshehri/dot/scripts/bspwm/bspwm-setscheme
 # Rofi
 super + d
 	rofi -show drun -show-icons
