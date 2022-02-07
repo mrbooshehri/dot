@@ -1,4 +1,6 @@
-#! /usr/bin/env bash
+#!/bin/bash
+
+DOTFILES=/home/mhmd/Repos/github.com/mrbooshehri/dot
 
 themes=()
 themes+=("dracula")
@@ -15,7 +17,7 @@ choice=$(printf "%s\n" "${themes[@]}" | dmenu)
 case $choice in
   "dracula")
     wal --theme base16-dracula 
-    ffcss=$DOTFILES/firefox-custom-css/waterfall-dracula.css
+    ffcss="$DOTFILES/firefox-custom-css/waterfall-dracula.css"
     ;;
   "gruvbox-dark")
     wal --theme base16-gruvbox-medium 

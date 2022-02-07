@@ -1,5 +1,7 @@
 #! /usr/bin/env bash
 
+DOTFILES=/home/mhmd/Repos/github.com/mrbooshehri/dot
+
 themes=()
 themes+=("dracula")
 themes+=("gruvbox-dark")
