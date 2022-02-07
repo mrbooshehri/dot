@@ -7,5 +7,5 @@ light=$(light -G | cut -d '.' -f 1)
 icon=""
 
 
-$SCRIPTS/notify-send -r  "$(pgrep dunst)" "$icon  $light"
+$SCRIPTS/dunst/notify-send -r  "$(pgrep dunst)" "$icon  $light"
 

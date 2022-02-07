@@ -19,5 +19,5 @@ if [ "$mute" != "false" ] ;then
   icon=""
 fi
 
-$SCRIPTS/notify-send -r  "$(pgrep dunst)" "$icon  $vol"
+$SCRIPTS/dunst/notify-send -r  "$(pgrep dunst)" "$icon  $vol"
 
