@@ -17,8 +17,8 @@
 ;==========================================================
 
 [colors]
-;background = ${xrdb:color0:#222}
-background = #222
+background = ${xrdb:color2:#222}
+;background = #222
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
@@ -27,17 +27,38 @@ primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
 
+pywal-background = ${xrdb:background}
+pywal-foreground = ${xrdb:foreground}
+pywal-color0 = ${xrdb:color0}
+pywal-color1 = ${xrdb:color1}
+pywal-color2 = ${xrdb:color2}
+pywal-color3 = ${xrdb:color3}
+pywal-color4 = ${xrdb:color4}
+pywal-color5 = ${xrdb:color5}
+pywal-color6 = ${xrdb:color6}
+pywal-color7 = ${xrdb:color7}
+pywal-color8 = ${xrdb:color8}
+pywal-color9 = ${xrdb:color9}
+pywal-color10 = ${xrdb:color10}
+pywal-color11 = ${xrdb:color11}
+pywal-color12 = ${xrdb:color12}
+pywal-color13 = ${xrdb:color13}
+pywal-color14 = ${xrdb:color14}
+pywal-color15 = ${xrdb:color15}
+pywal-color16 = ${xrdb:color16}
+
 [bar/bspwm]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
 height = 28
+enable-ipc = true
 ;offset-x = 1%
 ;offset-y = 1%
 ;radius = 6.0
 fixed-center = false
 
-background = ${colors.background}
-foreground = ${colors.foreground}
+background = ${colors.pywal-background}
+foreground = ${colors.pywal-foreground}
 
 line-size = 3
 line-color = #f00
@@ -53,11 +74,10 @@ module-margin-right = 2
 
 font-0 = Open Sans:pixelsize=12;1
 font-1 = Hack Nerd Font:size=12;1
-font-2 = siji:pixelsize=10;1
 
 modules-left = bspwm
 modules-center = mpd
-modules-right = xkeyboard pulseaudio battery date powermenu
+modules-right = xkeyboard checkupdate backlight pulseaudio battery date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -82,16 +102,14 @@ type = internal/xkeyboard
 blacklist-0 = num lock
 
 format-prefix = " "
-format-prefix-foreground = ${colors.foreground}
-;format-prefix-background= ${colors.secondary}
+format-prefix-foreground = ${colors.pywal-foreground}
+;format-prefix-background= ${colors.pywal-color2}
 
 label-layout = " %layout%"
-;label-layout-underline = ${colors.secondary}
 
 label-indicator-padding = 2
 label-indicator-margin = 1
-label-indicator-background = ${colors.secondary}
-;label-indicator-underline = ${colors.secondary}
+label-indicator-background = ${colors.pywal-background}
 
 [module/filesystem]
 type = internal/fs
@@ -107,15 +125,16 @@ label-unmounted-foreground = ${colors.foreground-alt}
 type = internal/bspwm
 
 label-focused = %index%
-label-focused-background = ${colors.background-alt}
-;abel-focused-underline= ${colors.primary}
+label-focused-background = ${colors.pywal-color2}
+label-focused-foreground = ${colors.pywal-color0}
 label-focused-padding = 2
 
 label-occupied = %index%
 label-occupied-padding = 2
 
 label-urgent = %index%!
-label-urgent-background = ${colors.alert}
+label-urgent-background = ${colors.pywal-color1}
+label-urgent-forebound = ${colors.pywal-color0}
 label-urgent-padding = 2
 
 label-empty = %index%
@@ -225,8 +244,7 @@ time = %H:%M
 time-alt = %H:%M
 
 format-prefix = 
-format-prefix-foreground = ${colors.foreground}
-;ormat-underline = #0a6cf5
+format-prefix-foreground = ${colors.pywal-foreground}
 
 label = " %date% %time%"
 
@@ -235,7 +253,8 @@ type = internal/pulseaudio
 
 format-volume = <label-volume> 
 label-volume ="墳  %percentage%%"
-label-volume-foreground = ${root.foreground}
+label-volume-foreground = ${color.pywal-foreground}
+label-volume-background = ${color.pywal-background}
 
 label-muted = muted
 label-muted-foreground = #666
@@ -258,30 +277,27 @@ adapter = ADP0
 full-at = 98
 
 format-charging = <animation-charging> <label-charging>
-;ormat-charging-underline = #ffb52a
 
 format-discharging = <animation-discharging> <label-discharging>
-;ormat-discharging-underline = ${self.format-charging-underline}
 
 format-full-prefix = " "
-format-full-prefix-foreground = ${colors.foreground}
-;ormat-full-underline = ${self.format-charging-underline}
+format-full-prefix-foreground = ${colors.pywal-foreground}
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
-ramp-capacity-foreground = ${colors.foreground}
+ramp-capacity-foreground = ${colors.pywal-foreground}
 
 animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
-animation-charging-foreground = ${colors.foreground}
+animation-charging-foreground = ${colors.pywal-foreground}
 animation-charging-framerate = 750
 
 animation-discharging-0 = 
 animation-discharging-1 = 
 animation-discharging-2 = 
-animation-discharging-foreground = ${colors.foreground}
+animation-discharging-foreground = ${colors.pywal-foreground}
 animation-discharging-framerate = 750
 
 [module/temperature]
@@ -290,13 +306,11 @@ thermal-zone = 0
 warn-temperature = 60
 
 format = <ramp> <label>
-;ormat-underline = #f50a4d
 format-warn = <ramp> <label-warn>
-;ormat-warn-underline = ${self.format-underline}
 
 label = %temperature-c%
 label-warn = %temperature-c%
-label-warn-foreground = ${colors.secondary}
+label-warn-foreground = ${colors.pywal-color1}
 
 ramp-0 = 
 ramp-1 = 
@@ -311,9 +325,9 @@ expand-right = true
 format-spacing = 1
 
 label-open = 襤
-label-open-foreground = ${colors.secondary}
+label-open-foreground = ${colors.pywal-color1}
 label-close = 
-label-close-foreground = ${colors.secondary}
+label-close-foreground = ${colors.pywal-color1}
 label-separator = |
 label-separator-foreground = ${colors.foreground-alt}
 
@@ -345,3 +359,20 @@ margin-top = 0
 margin-bottom = 0
 
 ; vim:ft=dosini
+
+[module/checkupdate]
+type = custom/script
+exec = checkupdates | wc -l
+interval = 360
+format = <label>
+format-background = ${colors.pywal-background}
+format-foreground = ${colors.pywal-foreground}
+label = "  %output%"
+
+[module/backlight]
+type = custom/ipc
+hook-0 = light -G | cut -d. -f1
+format-prefix = "   " 
+format-background = ${colors.pywal-background}
+format-foreground = ${colors.pywal-foreground}
+initial = 1
