@@ -35,15 +35,17 @@ Print + {_,shift,ctrl}
 XF86Audio{Play,Prev,Next}
   playerctl {play-pause,previous,next} || mocp -{G,r,f}
 XF86Audio{LowerVolume ,RaiseVolume}
-	~/Repos/github.com/mrbooshehri/dot/scripts/volumectl -{d,u}; ~/Repos/github.com/mrbooshehri/dot/scripts/dunst/dunst-volume
+	~/Repos/github.com/mrbooshehri/dot/scripts/volumectl -{d,u};\
+	~/Repos/github.com/mrbooshehri/dot/scripts/dunst/dunst-volume
 XF86AudioMute
-  pactl set-sink-mute 0 toggle; ~/Repos/github.com/mrbooshehri/dot/scripts/dunst/dunst-volume
+  pactl set-sink-mute 0 toggle;\
+	~/Repos/github.com/mrbooshehri/dot/scripts/dunst/dunst-volume
 
 # brightness
 XF86MonBrightness{Up,Down}
-  light {-A,-U} 10; ~/Repos/github.com/mrbooshehri/dot/scripts/dunst/dunst-backlight
-
-
+  light {-A,-U} 10;\
+	~/Repos/github.com/mrbooshehri/dot/scripts/dunst/dunst-backlight;\
+	polybar-msg hook backlight 1
 
 # close and kill
 super +shift + q
