@@ -1,6 +1,6 @@
 #!/bin/bash
 
-REPOS="~/Repos"
+REPOS="$HOME/Repos"
 DOTFILES="$REPOS/github.com/mrbooshehri/dot"
 
 themes=()
@@ -97,7 +97,7 @@ killall conky
 conky &
 
 # update forefox theme
-pywalfox update
+#pywalfox update
 
 # send notification
 notify-send "Colorscheme" "[ $choice ] colorscheme selected"
