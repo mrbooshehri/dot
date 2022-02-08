@@ -35,7 +35,7 @@ Print + {_,shift,ctrl}
 XF86Audio{Play,Prev,Next}
   playerctl {play-pause,previous,next} || mocp -{G,r,f}
 XF86Audio{LowerVolume ,RaiseVolume}
-	~/Repos/github.com/mrbooshehri/dot/scripts/volumectl -{d,u}; pkill -RTMIN+10 dwmblocks; ~/Repos/github.com/mrbooshehri/dot/scripts/dunst/dunst-volume
+	~/Repos/github.com/mrbooshehri/dot/scripts/volumectl -{d,u}; ~/Repos/github.com/mrbooshehri/dot/scripts/dunst/dunst-volume
 XF86AudioMute
   pactl set-sink-mute 0 toggle; ~/Repos/github.com/mrbooshehri/dot/scripts/dunst/dunst-volume
 
@@ -50,7 +50,7 @@ super +shift + q
 	bspc node -c
 
 # quit/restart bspwm
-super + alt + {q,r}
+super + control + shift + {q,r}
 	bspc {quit,wm -r}
 
 # alternate between the tiled and monocle layout
