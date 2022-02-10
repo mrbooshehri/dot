@@ -1,10 +1,10 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # name		icon
 # light		
-SCRIPTS=/home/mhmd/Repos/github.com/mrbooshehri/dot/scripts
+SCRIPTS="$HOME/Repos/github.com/mrbooshehri/dot/scripts"
 light=$(light -G | cut -d '.' -f 1)
 icon=""
 
-$SCRIPTS/dunst/notify-send -r "$(pgrep -x dunst)" "$icon  $light"
+"$SCRIPTS/dunst/notify-send" -t 900 -r  "$(pgrep -x dunst)" "$icon  $light"
 

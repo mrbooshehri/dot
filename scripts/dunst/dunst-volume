@@ -1,10 +1,11 @@
 #!/bin/bash
-SCRIPTS=/home/mhmd/Repos/github.com/mrbooshehri/dot/scripts
+SCRIPTS="$HOME/Repos/github.com/mrbooshehri/dot/scripts"
 
 vol=$(pamixer --get-volume)
 mute=$(pamixer --get-mute)
 icon=""
 
 [[ "$mute" != "false" ]] && icon=""
-$SCRIPTS/dunst/notify-send -r "$(pgrep -x dunst)" "$icon  $vol"
+
+"$SCRIPTS/dunst/notify-send" -t 900 -r "$(pgrep -x dunst)" "$icon  $vol"
 
