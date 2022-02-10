@@ -18,7 +18,7 @@ choice=$(printf "%s\n" "${themes[@]}" | dmenu)
 case $choice in
   "dracula")
     wal --theme base16-dracula 
-    ffcss="DOTFILES/firefox-custom-css/waterfall-dracula.css"
+    ffcss="$DOTFILES/firefox-custom-css/waterfall-dracula.css"
     ;;
   "gruvbox-dark")
     wal --theme base16-gruvbox-medium 
