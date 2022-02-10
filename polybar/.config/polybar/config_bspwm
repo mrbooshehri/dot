@@ -22,7 +22,7 @@ background = ${xrdb:color2:#222}
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
-foreground-alt = #555
+foreground-alt = #999
 primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
@@ -130,11 +130,12 @@ label-focused-foreground = ${colors.pywal-color0}
 label-focused-padding = 2
 
 label-occupied = %index%
+label-occupied-underline = ${colors.pywal-color2}
 label-occupied-padding = 2
 
 label-urgent = %index%!
 label-urgent-background = ${colors.pywal-color1}
-label-urgent-forebound = ${colors.pywal-color0}
+label-urgent-foreground = ${colors.pywal-color0}
 label-urgent-padding = 2
 
 label-empty = %index%
@@ -368,6 +369,7 @@ format = <label>
 format-background = ${colors.pywal-background}
 format-foreground = ${colors.pywal-foreground}
 label = "  %output%"
+click-left =checkupdates | wc -l 
 
 [module/backlight]
 type = custom/ipc
