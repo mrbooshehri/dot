@@ -263,7 +263,7 @@ alias temp='cd $(mktemp -d)'
 alias view='vi -R' # which is usually linked to vim
 alias clear='printf "\e[H\e[2J"'
 alias grep="grep -P"
-alias autoremove="sudo pacman -Rcns $(pacman -Qdtq)"
+alias autoremove="sudo pacman -Rns $(pacman -Qdtq)"
 alias ..="cd .."
 alias :q="exit"
 
