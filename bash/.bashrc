@@ -321,6 +321,7 @@ source $DOTFILES/snippets/cheat		# Cheat.sh
 source $DOTFILES/snippets/transfersh		# transfersh
 source $DOTFILES/snippets/cambinary		# seach in cambridge dictionary
 source $DOTFILES/snippets/haste		# hastebin online clipboard
+source $DOTFILES/snippets/markdownPreview # hastebin online clipboard
 
 # ------------- source external dependencies / completion ------------
 
