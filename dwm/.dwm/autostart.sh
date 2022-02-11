@@ -31,16 +31,11 @@ pgerp -x redshift > /dev/null || redshift -c ~/.config/redshift/redshift.conf > 
 feh --bg-fill --randomize /mnt/1TB/Pictures/Wallpaper.repo/* 
 
 # application
-#korganizer &
 nm-applet &
 blueman-applet &
-pywalfox start &
-#variety &
 safeeyes &
 syncthing &
-#megasync &
-kdeconnect-indicator
+mpd &
 #optimus-manager-qt &
-#mocp -S 
 # hide mouse cursor
 #unclutter -idle 1 -root
