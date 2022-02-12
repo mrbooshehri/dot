@@ -55,8 +55,6 @@ export EDITOR_PREFIX=vi
 export GOPRIVATE="github.com/$GITUSER/*,gitlab.com/$GITUSER/*"
 export GOPATH="$HOME/.local/share/go"
 export GOBIN="$HOME/.local/bin"
-export GOPATH="$HOME/.local/share/go"
-export GOBIN="$HOME/.local/bin"
 export LESS_TERMCAP_mb="[35m" # magenta
 export LESS_TERMCAP_md="[33m" # yellow
 export LESS_TERMCAP_me="" # "0m"
@@ -266,6 +264,9 @@ alias grep="grep -P"
 alias autoremove="sudo pacman -Rns $(pacman -Qdtq)"
 alias ..="cd .."
 alias :q="exit"
+alias '?'=duck
+alias '??'=google
+alias '???'=brave
 
 _have vim && alias vi=vim
 
@@ -317,11 +318,11 @@ extr()
 }
 
 source $DOTFILES/snippets/dirFileHelper	# Directory and file helper
-source $DOTFILES/snippets/cheat		# Cheat.sh
 source $DOTFILES/snippets/transfersh		# transfersh
 source $DOTFILES/snippets/cambinary		# seach in cambridge dictionary
 source $DOTFILES/snippets/haste		# hastebin online clipboard
 source $DOTFILES/snippets/markdownPreview # hastebin online clipboard
+
 
 # ------------- source external dependencies / completion ------------
 
