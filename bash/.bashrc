@@ -335,12 +335,3 @@ _have gh && . <(gh completion -s bash)
 _have pandoc && . <(pandoc --bash-completion)
 _have docker && _source_if "$HOME/.local/share/docker/completion" # d
 _have docker-compose && complete -F _docker_compose dc # dc 
-
-# --------------------------- Kitty ---------------------------
-
-# -------------------------------------------------------------
-
-
-# BEGIN_KITTY_SHELL_INTEGRATION
-if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
-# END_KITTY_SHELL_INTEGRATION
