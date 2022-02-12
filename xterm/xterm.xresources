@@ -1,0 +1,7 @@
+xterm*utf8: 1
+xterm*faceName: Victor Mono SemiBold
+xterm*faceSize: 12
+xterm*utf8Title: true
+xterm*boldMode: false
+XTerm*scrollBar:   on
+XTerm*saveLines:   5000
