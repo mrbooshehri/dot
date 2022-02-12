@@ -107,7 +107,8 @@ let &t_te.="\e[0 q"
 "nmap gm :LivedownToggle<CR>
 nmap ch :ColorHighlight<CR>
 " markdonw preview
-nnoremap <silent>  gm :execute 'silent !pandoc % -t pdf \| zathura - &' \| redraw<CR>
+"nnoremap <silent>  gm :execute 'silent !pandoc % -t pdf \| zathura - &' \| redraw<CR>
+nnoremap <silent>  gm :execute '!pandoc % \| lynx -stdin' <CR>
 
 "---------------------------------------- coc keybindings
 " Use <Tab> and <S-Tab> to navigate the completion list
