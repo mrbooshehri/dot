@@ -57,8 +57,8 @@ bash "$REPOS/github.com/GideonWolfe/Zathura-Pywal/install.sh"
 # xresources
 cat ~/.cache/wal/xmenu >> ~/.cache/wal/colors.Xresources
 cat ~/.cache/wal/dwm_colors >> ~/.cache/wal/colors.Xresources
+cat $DOTFILES/xterm/xterm.xresources >> ~/.cache/wal/colors.Xresources
 ln -sf ~/.cache/wal/colors.Xresources ~/.Xresources
-
 
 ## dunst
 ln -sf ~/.cache/wal/dunstrc ~/.config/dunst/dunstrc
