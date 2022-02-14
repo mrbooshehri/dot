@@ -1,0 +1,3 @@
+#!/bin/bash
+
+cd "$(find /mnt/1TB/ -maxdepth 3 -type d 2>/dev/null | fzf)"

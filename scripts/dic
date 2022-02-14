@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# to get cambrinary ```pip install cambrinary```
+cambrinary -w $*

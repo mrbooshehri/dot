@@ -1,0 +1,53 @@
+#!/bin/bash
+
+REGEX='(https?|ftp|file)://[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&@#/%=~_|]'
+
+_upload() {
+  curl -s4 --upload-file $1 https://transfer.sh/$1
+}
+
+_encupload() {
+  cat $1 | gpg -ac -o- | curl -X PUT --upload-file "-" https://transfer.sh/$1
+}
+
+_decdownload() {
+  curl https://transfer.sh/$1/$2 | gpg -o- > ~/Downloads/$2
+}
+_download() {
+  curl -s4 $1 -o $2
+}
+
+
+while getopts "deh?" opt 
+do
+   case "$opt" in
+      d)
+        DEC=1 ;; # for decrypting file after downlaod.
+      e)
+        ENC=1 ;; # for encrypting file before uploading.
+      h\?) # display Help
+         echo "Transfer.sh toolkit"
+				 echo
+				 echo "transfer [OPTIONS] [FILE/URL]"
+				 echo "Usage:"
+				 echo -e "  -d		decrypct file after download it"
+				 echo -e "  -e		ecrypct file before upload it"
+				 echo -e "  -h		show this message"
+         exit;;
+   esac
+done
+
+shift $((OPTIND-1))
+[ "${1:-}" = "--" ] && shift
+
+if [[ -f $1 ]]; then
+	[[ "$ENC" -eq 1 ]] && _enupload; exit 0
+	_upload
+	exit 0
+elif [[ $1 ~= $REGEX ]]; then
+	[[ "$DEC" -eq 1 ]] && _decdownload; exit 0
+	_download
+	exit 0
+else
+	echo Invalid input argument.
+fi
