@@ -321,7 +321,7 @@ extr()
 # ------------- source external dependencies / completion ------------
 
 owncomp=(
-  pdf md yt gl auth config sshkey zet
+  pdf md yt gl auth config sshkey zet todo
 )
 
 for i in "${owncomp[@]}"; do complete -C "$i" "$i"; done
