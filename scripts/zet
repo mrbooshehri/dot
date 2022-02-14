@@ -23,16 +23,15 @@ test -z "$GITUSER" && echo "GITUSER not set." && exit 1
 # subdirectories, each of which is usually a git repository that directly
 # matches the name of the multicall executable (ex: $ZETDIR/zet).
 
-test -d "$HOME/.local/share/zet" && ZETDIR="$HOME/.local/share/zet"
+test -d "$ZETDIR" && ZETDIR="$ZETDIR"
 test -d "$KN" && ZETDIR="$KN"
 
 EXE=${0##*/}
 test -z "$EXE" && echo "Could not determine name of executable." && exit 1
-DIR="$ZETDIR/$EXE"
+DIR="$ZETDIR"
 
 # ------------------------- complete context -------------------------
 
-#declare -a COMMANDS=(usage a add q query text d dir e edit id urlencode titles last title body before after ids v video for)
 declare -a COMMANDS=(usage a add q query text d dir e edit id urlencode titles last title body before after ids)
 
 if [[ -n $COMP_LINE ]]; then
@@ -48,45 +47,6 @@ _usage() {
     local cmds="${COMMANDS[@]}"
     printf "usage: ${0##*/} (${cmds// /|})\n"
 }
-
-#_set_video() {
-#  local dir="$(_d)/$1"
-#  local readme="$dir/README.md"
-#  [[ ! -r $readme ]] && echo "<not found>" && return 1
-#  if [[ $(sed '3q;d' "$readme") =~ ^📺 ]]; then
-#    echo -e "3c\n📺 <$2>\n.\nwq" | ed "$readme" >/dev/null
-#  else
-#    echo -e "2a\n📺 <$2>\n\n.\nwq" | ed "$readme" >/dev/null
-#  fi
-#}
-#
-#_video() {
-#  local zet="$1"
-#  local vid="$2"
-#  if [[ -n "$vid" ]]; then
-#    _set_video "$@"
-#    return $?
-#  fi
-#  local IFS=$'\n'
-#  if [[ -z $zet ]]; then
-#    while read -r line; do
-#      _video $line
-#    done
-#    return 0
-#  fi
-#  local dir="$(_d)/$1"
-#  local readme="$dir/README.md"
-#  [[ ! -r $readme ]] && echo "<not found>" && return 1
-#  while read -r line; do
-#    if [[ $line =~ ^📺\ \<(.*)\> ]]; then
-#      echo "${BASH_REMATCH[1]}"
-#      return 0
-#    fi
-#  done < "$readme"
-#  return 1
-#}
-#
-#_v() { _video "$@"; }
 
 _urlencode() {
   local string="$*"
@@ -125,10 +85,12 @@ _d() { _dir "$@"; }
 # for knowledge repos).
 
 _add() {
+  echo $DIR
+  echo $_d
   local dir="$(_d)/$(_id)"
   local readme="$dir/README.md"
   mkdir -p "$dir"
-  "${EDITOR:-vim}" "$readme"
+  vim "$readme"
   cd "$dir"
   # TODO bail if file is zero length
   line=$(head -1 "$dir/README.md" | sed 's/#\+ *//')
@@ -144,7 +106,7 @@ _edit() {
   local dir="$(_d)/$1"
   local readme="$dir/README.md"
   [[ ! -r $readme ]] && echo "Not found." && return 1
-  "${EDITOR:-vim}" "$readme"
+  vim "$readme"
   # TODO prompt for "save" (git commit)
 }
 _e() { _edit "$@"; }
@@ -224,14 +186,6 @@ _before() {
   done < <(_ids)
   echo $prev
 }
-
-#_for() {
-#  local mkv="$1"
-#  [[ $mkv =~ - ]] && mkv=$(mkv2isosec "$1")
-#  local id=${mkv##*/}
-#  id=${id%.mkv}
-#  zet before $id
-#}
 
 _after() {
   local id=$1
