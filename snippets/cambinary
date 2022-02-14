@@ -1,4 +1,0 @@
-# seach in cambridge dictionary
-dic(){
-  cambrinary -w $*
-}
