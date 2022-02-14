@@ -25,8 +25,8 @@ ARR+=("Passgen")
 ARR+=("Usergen")
 
 CHOICE=$(printf '%s\n' "${ARR[@]}" | dmenu)
-GHREPOS=/home/mhmd/Repos/github.com/mrbooshehri
-DMENUSCRIPTS=/home/mhmd/Repos/github.com/mrbooshehri/dot/scripts/dmenu
+GHREPOS=$HOME/Repos/github.com/mrbooshehri
+DMENUSCRIPTS=$HOME/Repos/github.com/mrbooshehri/dot/scripts/dmenu
 
 case $CHOICE in
   "Dictionary") $DMENUSCRIPTS/dmenu-dict ;;
@@ -39,7 +39,7 @@ case $CHOICE in
   "dradio") dradio -d ;;
   "Ambiant Music") $DMENUSCRIPTS/dmenu-ambiant-music ;;
   "obs-remote") $DMENUSCRIPTS/dmenu-obs ;;
-  "Reddit-wall") $DMENUSCRIPTS/waldl ;;
+  "Reddit-wall") $DMENUSCRIPTS/dmenu-waldl ;;
   "Wallhaven-wall") $DMENUSCRIPTS/dmenu-wallget ;;
   "Change-wall") $DMENUSCRIPTS/dmenu-wal-change ;;
   "Jupyter Lab") $DMENUSCRIPTS/dmenu-jupyter-notebook ;;
