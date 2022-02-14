@@ -317,17 +317,11 @@ extr()
   fi
 }
 
-source $DOTFILES/snippets/dirFileHelper	# Directory and file helper
-source $DOTFILES/snippets/transfersh		# transfersh
-source $DOTFILES/snippets/cambinary		# seach in cambridge dictionary
-source $DOTFILES/snippets/haste		# hastebin online clipboard
-source $DOTFILES/snippets/markdownPreview # hastebin online clipboard
-
 
 # ------------- source external dependencies / completion ------------
 
 owncomp=(
-  pdf md yt gl auth config sshkey 
+  pdf md yt gl auth config sshkey zet
 )
 
 for i in "${owncomp[@]}"; do complete -C "$i" "$i"; done
