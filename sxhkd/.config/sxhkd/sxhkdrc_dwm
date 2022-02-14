@@ -37,13 +37,13 @@ Print + {_,shift,ctrl}
 
 # media keys
 XF86Audio{Play,Prev,Next} 
-	playerctl {play-pause,previous,next} || mocp -{G,r,f}
+	playerctl {play-pause,previous,next} || mpc {toggle,prev,next}
 XF86Audio{LowerVolume ,RaiseVolume}
 	$HOME/Repos/github.com/mrbooshehri/dot/scripts/volumectl -{d,u}; pkill -RTMIN+10 dwmblocks; $HOME/Repos/github.com/mrbooshehri/dot/scripts/dunst/dunst-volume
 XF86AudioMute 
 	pactl set-sink-mute 0 toggle;pkill -RTMIN+10 dwmblocks; $HOME/Repos/github.com/mrbooshehri/dot/scripts/dunst/dunst-volume
 F{1,2,3} 
-	playerctl {play-pause,previous,next} || mocp -{G,r,f}
+	playerctl {play-pause,previous,next} || mpc {toggle,prev,next}
 
 # brightness
 XF86MonBrightness{Up,Down}
