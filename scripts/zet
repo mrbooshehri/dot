@@ -92,7 +92,12 @@ _add() {
   mkdir -p "$dir"
   vim "$readme"
   cd "$dir"
-  # TODO bail if file is zero length
+  # remove zet if it's zero line
+  if [[ ! -s "$dir/README.md" ]]; then
+    cd ..
+    rm -rf $dir
+    exit 0
+  fi
   line=$(head -1 "$dir/README.md" | sed 's/#\+ *//')
   test -n "$line"
   echo "Adding: $line"
@@ -178,21 +183,21 @@ _ids() {
 }
 
 _before() {
-  local id=$1
+  local id="$1"
   local prev
   while read -r cur; do
-    (( cur > $id )) && break
+    (( cur > id )) && break
     prev=$cur
   done < <(_ids)
-  echo $prev
+  echo "$prev"
 }
 
 _after() {
-  local id=$1
+  local id="$1"
   while read -r cur; do
-    (( cur > $id )) && break
+    (( cur > id )) && break
   done < <(_ids)
-  echo $cur
+  echo "$cur"
 }
 
 # ---------------------------- delegation ----------------------------
