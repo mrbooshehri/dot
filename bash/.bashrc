@@ -331,3 +331,9 @@ _have gh && . <(gh completion -s bash)
 _have pandoc && . <(pandoc --bash-completion)
 _have docker && _source_if "$HOME/.local/share/docker/completion" # d
 _have docker-compose && complete -F _docker_compose dc # dc 
+
+ownsource=(
+  hf
+  )
+
+for i in "${ownsource[@]}"; do _source_if "$SNIPPETS/bash/$i"; done
