@@ -1,0 +1,1 @@
+/home/mhmd/.config/qutebrowser/colorschemes/base16-gruvbox-light-soft.config.py
