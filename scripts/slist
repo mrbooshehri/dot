@@ -22,7 +22,7 @@ case $1 in
 		exit 0
 		;;
 	list)
-		cut -d. -f2 < "${path}/successlist.md" | nl
+		tail -n +3 "${path}/successlist.md" | cut -d. -f2 | nl
 		exit 0
 		;;
 	preview)
