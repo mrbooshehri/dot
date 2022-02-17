@@ -91,10 +91,7 @@ case $isDark in
 esac
 
 # set firefox css
-    ln -sf $ffcss ~/.mozilla/firefox/o5dll2jq.default-release/chrome/userChrome.css
-
-# set librewolf css
-    ln -sf $ffcss ~/.librewolf/m84kzejz.default-release/chrome/userChrome.css
+    ln -sf $ffcss ~/.mozilla/firefox/me.default/chrome/userChrome.css
 
 # reload xresources file
 xrdb -load ~/.Xresources
