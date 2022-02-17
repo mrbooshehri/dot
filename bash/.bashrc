@@ -251,6 +251,7 @@ unalias -a
 alias dot='cd $DOTFILES'
 alias scripts='cd $SCRIPTS'
 alias snippets='cd $SNIPPETS'
+alias doc='cd $GHREPOS/documentations'
 alias ls='ls --color=auto --group-directories-first'
 alias free='free -h'
 alias df='df -h'
