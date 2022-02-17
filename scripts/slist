@@ -1,0 +1,35 @@
+#!/usr/bin/bash
+
+declare -a COMMANDS=(add help list preview)
+
+if [[ -n $COMP_LINE ]]; then
+    for c in "${COMMANDS[@]}"; do
+        [[ ${c:0:${#2}} == "${2,,}" ]] && echo "$c"
+    done
+    exit
+fi
+
+test ! -n "${EXDOCUMENTS}" && echo "EXDOCUMENTS not set" && exit 1;
+test ! -n "${EXDOCUMENTS}/Notes/rwxrob/" && echo "${EXDOCUMENTS}/Notes/rwxrob/ not set" && exit 1;
+
+path="${EXDOCUMENTS}/Notes/rwxrob"
+
+test ! -n "${path}/successlist.md" && echo -e "# List of My Success\n" > "${path}/successlist.md"
+
+case $1 in 
+	add)
+		[[ -n ${@: 2} ]] && echo "1. ${@: 2}" >> "${path}/successlist.md"
+		exit 0
+		;;
+	list)
+		cut -d. -f2 < "${path}/successlist.md" | nl
+		exit 0
+		;;
+	preview)
+		pandoc "${path}/successlist.md" | lynx -stdin
+		;;
+	*) 
+		echo "usage: add | list | preview" 
+		exit 0
+		;;
+esac
