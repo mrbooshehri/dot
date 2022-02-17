@@ -1,3 +1,3 @@
 #!/bin/bash
 
-curl cheat.sh/$1\?T | pandoc | lynx -stdin
+curl -s cheat.sh/$1\?T | pandoc | lynx -stdin
