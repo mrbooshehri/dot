@@ -35,25 +35,26 @@ syntax enable                           " Enables syntax highlighing
 colorscheme wal
 "highlight Normal ctermbg=Black
 "highlight NonText ctermbg=Black
-"highlight Search ctermbg=blue
+"highlight Search ctermbg=red
 "highlight SpellBad ctermbg=red
 set hidden                              " Required to keep multiple buffers open multiple buffers
 set encoding=utf-8                      " The encoding displayed
 set pumheight=10                        " Makes popup menu smaller
 set fileencoding=utf-8                  " The encoding written to file
 set ruler                               " Show the cursor position all the time
-set cmdheight=2                         " More space for displaying messages
+set hlsearch
+"set cmdheight=2                         " More space for displaying messages
 set iskeyword+=-                        " treat dash separated words as a word text object"
 set splitbelow                          " Horizontal splits will automatically be below
 set splitright                          " Vertical splits will automatically be to the right
 set t_Co=256                            " Support 256 colors
-set shiftwidth=2                        " Change the number of space characters inserted for indentation
+"set shiftwidth=2                        " Change the number of space characters inserted for indentation
 set smartindent                         " Makes indenting smart
 set autoindent                          " Good auto indent
 set number                              " Line numbers
 "set cursorline                          " Enable highlighting of the current line
 "set cursorcolumn                        " Enable highlighting of the current column 
-set background=dark                     " tell vim what the background color looks like
+"set background=dark                     " tell vim what the background color looks like
 set updatetime=300                      " Faster completion
 set timeoutlen=500                      " By default timeoutlen is 1000 ms
 set formatoptions=cro										" Stop newline continution of comments
