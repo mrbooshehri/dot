@@ -1,0 +1,51 @@
+#!/bin/sh
+set -e
+
+ARR=()
+ARR+=("Thunar")
+ARR+=("X11")
+ARR+=("alacritty")
+#ARR+=("bspwm")
+ARR+=("conky")
+#ARR+=("dradio")
+ARR+=("dunst")
+ARR+=("dwm")
+ARR+=("firefox-helper")
+ARR+=("fontconfig")
+#ARR+=("kitty")
+ARR+=("lynx")
+#ARR+=("moc")
+ARR+=("mpd")
+#ARR+=("mpv")
+ARR+=("ncmpcpp")
+ARR+=("newsboat")
+ARR+=("picom")
+#ARR+=("polybar")
+#ARR+=("qtile")
+#ARR+=("qutebrowser")
+ARR+=("redshift")
+ARR+=("rofi")
+#ARR+=("starship")
+ARR+=("sxhkd")
+ARR+=("sxiv")
+ARR+=("tmux")
+#ARR+=("tremc")
+ARR+=("vim")
+ARR+=("wal")
+ARR+=("xfce4")
+#ARR+=("xterm")
+ARR+=("zathura")
+
+ln -sf "$PWD/.bashrc" "$HOME/.bashrc"
+ln -sf "$PWD/.dircolors" "$HOME/.dircolors"
+ln -sf "$PWD/.inputrc" "$HOME/.inputrc"
+ln -sf "$PWD/.profile" "$HOME/.profile"
+ln -sf "$PWD/.profile" "$HOME/.bash_profile"
+ln -sf "$PWD/.xinitrc" "$HOME/.xinitrc"
+ln -sf "$PWD/.gitconfig" "$HOME/.gitconfig"
+ln -sf "$PWD/scripts" "$HOME/Scripts"
+
+for i in ${ARR[@]}; do
+  cd $i && ./setup
+  cd -
+done
