@@ -23,7 +23,7 @@ dwm.tagsselfgcolor: {color0}
 dwm.tagsselbgcolor: {color10}
 dwm.tagsselbordercolor: {color7}
 dwm.tagsselfloatcolor: {color7}
-dwm.urgfgcolor: {color7}
+dwm.urgfgcolor: {color0}
 dwm.urgbgcolor: {color9}
 dwm.urgbordercolor: {color9}
 dwm.urgfloatcolor: {color9}
