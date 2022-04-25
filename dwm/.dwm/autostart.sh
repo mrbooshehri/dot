@@ -28,7 +28,8 @@ pgerp -x redshift > /dev/null || redshift -c ~/.config/redshift/redshift.conf > 
 # colorscheme
 #bash ~/scripts/general/color-scheme.sh
 
-feh --bg-fill --randomize /mnt/1TB/Pictures/Wallpaper.repo/* 
+#feh --bg-fill --randomize /mnt/1TB/Pictures/Wallpaper.repo/* 
+feh --bg-fill ~/.cache/wallpaper
 
 # application
 nm-applet &
