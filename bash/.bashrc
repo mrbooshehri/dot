@@ -49,9 +49,9 @@ export CLIP_VOLUME=0
 export CLIP_SCREEN=0
 export TERM=xterm-256color
 export HRULEWIDTH=73
-export EDITOR=vi
-export VISUAL=vi
-export EDITOR_PREFIX=vi
+export EDITOR=vim
+export VISUAL=vim
+export EDITOR_PREFIX=vim
 export GOPRIVATE="github.com/$GITUSER/*,gitlab.com/$GITUSER/*"
 export GOPATH="$HOME/.local/share/go"
 export GOBIN="$HOME/.local/bin"
@@ -230,7 +230,7 @@ __ps1() {
   [[ $B = master || $B = main ]] && b="$r"
   [[ -n "$B" ]] && B="$w($b$B$w)"
 
-  short="$u\u$g$PROMPT_AT$h\h$g:$w$dir$B$p$P$x "
+  short="$u\u$w$PROMPT_AT$h\h$w:$w$dir$B$p$P$x "
   long="$w╔ $u\u$g$PROMPT_AT$h\h$g:$w$dir$B\n$w╚ $p$P$x "
   double="$w╔ $u\u$g$PROMPT_AT$h\h$g:$w$dir\n$w║ $B\n$w╚ $p$P$x "
 
