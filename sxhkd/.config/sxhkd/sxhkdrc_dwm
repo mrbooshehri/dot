@@ -43,7 +43,7 @@ XF86Audio{LowerVolume ,RaiseVolume}
 XF86AudioMute 
 	pactl set-sink-mute 0 toggle;pkill -RTMIN+10 dwmblocks; $HOME/Repos/github.com/mrbooshehri/dot/scripts/dunst/dunst-volume
 F{1,2,3} 
-	playerctl {play-pause,previous,next} || mpc {toggle,prev,next}
+	playerctl {play-pause,previous,next} || mpc {toggle,prev,next} && notify-send -t 900 "MPC" "`mpc | head -1`"
 
 # brightness
 XF86MonBrightness{Up,Down}
