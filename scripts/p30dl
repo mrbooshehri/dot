@@ -1,2 +1,0 @@
-#!/bin/bash
-curl $1 | grep .*rar | grep nofollow | pup a | grep href=".*" | cut -d" " -f 3 | cut -d '"' -f2 | wget -i -

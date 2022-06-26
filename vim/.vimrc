@@ -20,7 +20,6 @@ Plugin 'ryanoasis/vim-devicons'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'chrisbra/colorizer'
-Plugin 'dylanaraps/wal.vim'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'rwxrob/vim-pandoc-syntax-simple'
@@ -32,7 +31,6 @@ filetype plugin indent on    " required
 
 "---------------------------------------- my init
 syntax enable                           " Enables syntax highlighing
-colorscheme wal
 "highlight Normal ctermbg=Black
 "highlight NonText ctermbg=Black
 "highlight Search ctermbg=red

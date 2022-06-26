@@ -1,0 +1,4 @@
+mkdir ~/.config 2>/dev/null
+rm -rf ~/.config/fontconfig 2>/dev/null
+ln -s "$PWD" "$HOME/.config/fontconfig"
+ls -l ~/.config/fontconfig

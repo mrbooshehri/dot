@@ -1,0 +1,5 @@
+#!/bin/bash
+imkdir ~/.config/ 2>/dev/null
+rm -rf ~/.config/tremc 2>/dev/null
+ln -s "$PWD" "$HOME/.config/tremc"
+ls -l ~/.config/tremc

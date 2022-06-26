@@ -1,46 +1,4 @@
 #!/bin/bash
 
-DIR_DATA="$HOME/Documents/dic"
-DIR_TMP="/tmp/dic"
-
-if [[ ! "$(which cambrinary)" ]]; then
-	echo "Cambrinary not installed do you want to install it?(y/n)"
-	[[ "$(read)"  == 'y' ]] && pip install cambrinary
-	exit 0
-fi
-
-test ! -d $DIR_DATA && mkdir -p $DIR_DATA
-test ! -d $DIR_TMP && mkdir $DIR_TMP 
-
-_add(){
-	test -f "$DIR_DATA/$1" && exit 0
-	_find $1 > "$DIR_TMP/$1"
-	[[ ! "$(head -1 "$DIR_TMP/$1")" == "None" ]] && mv "$DIR_TMP/$1" "$DIR_DATA/$1" && exit 0
-}
-
-_find(){
-	test -z $1 && _help && exit 1
-	cat "$DIR_DATA/$1" 2> /dev/null || cambrinary -w $1
-}
-
-_help(){
-	echo -e "Simple dictionary sript"
-	echo -e "dic [Options] [arg]"
-	echo -e "  -a,		add word to colection"
-	echo -e "  -r,		print raw format"
-	echo -e "  -h,		shot this message"
-}
-
-while getopts "arh?" opt
-do
-  case "$opt" in
-    a) shift 
-			_add $1 ;;
-		r) shift 
-			_find $1 | sed $'s/\e\\[[0-9;:]*[a-zA-Z]//g' ;;
-    h|\?) _help ;;
-  esac
-			exit 0
-done
-
-_find $1
+# to get cambrinary ```pip install cambrinary```
+cambrinary -w $*

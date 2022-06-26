@@ -1,0 +1,24 @@
+#!/bin/bash
+set -e
+
+ARR=()
+ARR+=("fontconfig")
+ARR+=("lynx")
+ARR+=("newsboat")
+ARR+=("tmux")
+ARR+=("tremc")
+ARR+=("vim")
+
+ln -sf "$PWD/.bashrc" "$HOME/.bashrc"
+ln -sf "$PWD/.dircolors" "$HOME/.dircolors"
+ln -sf "$PWD/.inputrc" "$HOME/.inputrc"
+ln -sf "$PWD/.profile" "$HOME/.profile"
+ln -sf "$PWD/.bash_profile" "$HOME/.bash_profile"
+ln -sf "$PWD/.xinitrc" "$HOME/.xinitrc"
+ln -sf "$PWD/.gitconfig" "$HOME/.gitconfig"
+ln -sf "$PWD/scripts" "$HOME/Scripts"
+
+for i in ${ARR[@]}; do
+  cd $i && ./setup
+  cd -
+done
