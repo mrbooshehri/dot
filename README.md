@@ -1,6 +1,1 @@
-#!/bin/sh
-
-set -e
-
-ln -sf "$PWD" "$HOME/.config/Thunar"
-
+# Personal dot files for wsl
