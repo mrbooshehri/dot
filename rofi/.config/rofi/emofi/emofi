@@ -8,6 +8,7 @@ FILE="$DIR/emojis.txt"
 test -d $DIR || mkdir $DIR
 test -f $FILE || curl $URL | grep -v '^#' | grep ' ; fully-qualified ' | cut -d'#' -f2 | awk '{$2=""; print}'> $FILE
 
-EMOJI=`cat $FILE | rofi -dmenu -show | cut -d' ' -f1`
+EMOJI=`cat $FILE | rofi -dmenu -show -p "Select emoji" -l 7 | cut -d' ' -f1`
+[[ -z $EMOJI ]] && exit 0
 echo -n "$EMOJI" | xsel -bi
 notify-send -t 500 -u low "Emofi" "$EMOJI copied to the clipboard."
