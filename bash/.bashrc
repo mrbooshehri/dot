@@ -262,7 +262,9 @@ alias temp='cd $(mktemp -d)'
 alias view='vi -R' # which is usually linked to vim
 alias clear='printf "\e[H\e[2J"'
 alias grep="grep -P"
-alias autoremove="sudo pacman -Rns $(pacman -Qdtq)"
+alias ghrepo="cd $GHREPOS"
+
+#alias autoremove="sudo pacman -Rns $(pacman -Qdtq)"
 alias ..="cd .."
 alias :q="exit"
 alias '?'=duck
@@ -322,7 +324,7 @@ extr()
 # ------------- source external dependencies / completion ------------
 
 owncomp=(
-  pdf md yt gl auth config sshkey zet todo slist sshs
+  pdf md yt gl auth config sshkey zet todo slist sshs ansinit
 )
 
 for i in "${owncomp[@]}"; do complete -C "$i" "$i"; done
