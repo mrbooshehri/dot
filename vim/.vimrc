@@ -24,6 +24,7 @@ Plugin 'sheerun/vim-polyglot'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'rwxrob/vim-pandoc-syntax-simple'
 Plugin 'tpope/vim-surround'
+Plugin 'axvr/org.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -116,3 +117,7 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " Use <Ctrl-F> to format documents with prettier
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 noremap <C-F> :Prettier<CR>
+
+"---------------------------------------- Org.vim
+syntax enable
+filetype plugin indent on
