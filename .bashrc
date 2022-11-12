@@ -269,6 +269,7 @@ alias :q="exit"
 alias '?'=duck
 alias '??'=google
 alias '???'=brave
+alias ghrepo="cd $GHREPOS"
 
 _have vim && alias vi=vim
 
@@ -323,7 +324,7 @@ extr()
 # ------------- source external dependencies / completion ------------
 
 owncomp=(
-  pdf md yt gl auth config sshkey zet todo slist
+  pdf md yt gl auth config sshkey zet todo slist ansinit
 )
 
 for i in "${owncomp[@]}"; do complete -C "$i" "$i"; done
