@@ -1,0 +1,2 @@
+#!/bin/bash
+curl -s $1 | egrep "https://cdna|https://dl.*\.(rar|zip)" | pup a attr{href} | wget -ic -
