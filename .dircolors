@@ -77,7 +77,7 @@ DOOR 35;44 # Solaris 2.5 and later
 BLK  33;44
 CHR  37;44
 ORPHAN  05;37;41
-MISSING 05;37;41
+#MISSING 05;37;41
 
 EXEC 31  # Unix
 .cmd 31  # Win
