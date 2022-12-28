@@ -1,0 +1,5 @@
+#! /bin/bash
+
+CONF=$(ls /etc/openfortivpn/ | fzf)
+
+[[ ! -z $CONF ]] && openfortivpn -c "/etc/openfortivpn/$CONF" || exit 1
