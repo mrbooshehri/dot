@@ -64,6 +64,8 @@ export LESS_TERMCAP_se="" # "0m"
 export LESS_TERMCAP_so="[34m" # blue
 export LESS_TERMCAP_ue="" # "0m"
 export LESS_TERMCAP_us="[4m"  # underline
+export VAGRANT_DEFAULT_PROVIDER=virtualbox
+#export VAGRANT_DEFAULT_PROVIDER=docker
 
 [[ -d /.vim/spell ]] && export VIMSPELL=("$HOME/.vim/spell/*.add")
 
@@ -324,7 +326,7 @@ extr()
 # ------------- source external dependencies / completion ------------
 
 owncomp=(
-  pdf md yt gl auth config sshkey zet todo slist ansinit
+  pdf md yt gl auth config sshkey zet todo slist ansinit fuzzy-ssh
 )
 
 for i in "${owncomp[@]}"; do complete -C "$i" "$i"; done
