@@ -4,7 +4,7 @@ CONF_HOME=$HOME/.config/tunnels
 TUNNELS_LIST=$CONF_HOME/tunnels.list
 
 ! test -d $CONF_HOME && mkdir -p $CONF_HOME
-! test -f $TUNNELS_LIST && touch $TUNNELS_LIST
+! test -f $TUNNELS_LIST && echo "local_port|remote_user|remote_address|remote_port" > $TUNNELS_LIST
 
 INFO=`cat $TUNNELS_LIST | tail +2 | fzf --reverse`
 
