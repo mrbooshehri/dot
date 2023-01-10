@@ -6,8 +6,12 @@ TUNNELS_LIST=$CONF_HOME/tunnels.list
 ! test -d $CONF_HOME && mkdir -p $CONF_HOME
 ! test -f $TUNNELS_LIST && echo "local_port|remote_user|remote_address|remote_port" > $TUNNELS_LIST
 
-INFO=`cat $TUNNELS_LIST | tail +2 | fzf --reverse`
+case $1 in
+    add) vim $TUNNELS_LIST ;;
+    "")
+        INFO=`cat $TUNNELS_LIST | tail +2 | fzf --reverse`
+        [[ -z $INFO ]] && exit
+        ssh -L $(echo $INFO | awk -F "|" '{print "localhost:"$2":"$4":"$5" "$3"@"$4}')
+        ;;
+esac
 
-[[ -z $INFO ]] && exit
-
-ssh -L $(echo $INFO | awk -F "|" '{print "localhost:"$1":"$3":"$4" "$2"@"$3}')
