@@ -1,5 +1,5 @@
 #! /bin/bash
 
-CONF=$(ls /etc/openfortivpn/ | fzf)
+CONF=$(ls /etc/openfortivpn/ | fzf --reverse)
 
-[[ ! -z $CONF ]] && openfortivpn -c "/etc/openfortivpn/$CONF" || exit 1
+[[ ! -z $CONF ]] && sudo openfortivpn -c "/etc/openfortivpn/$CONF" || exit 1
