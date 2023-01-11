@@ -1,0 +1,5 @@
+#!/usr/bin/python3
+
+import crypt ,getpass
+password = getpass.getpass()
+print(crypt.crypt(password) if (password == getpass.getpass("Confirm: ")) else exit())
