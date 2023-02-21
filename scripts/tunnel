@@ -11,7 +11,9 @@ case $1 in
     "")
         INFO=`cat $TUNNELS_LIST | tail +2 | fzf --reverse`
         [[ -z $INFO ]] && exit
-        ssh -L $(echo $INFO | awk -F "|" '{print "localhost:"$2":"$4":"$5" "$3"@"$4}')
+         ssh -L $(echo $INFO | awk -F "|" '{print "localhost:"$2":"$4":"$5" "$3"@"$4}')
         ;;
 esac
 
+# with jump server
+#ssh -L 1025:127.0.0.1:1025 -J user@J_IP user@T_IP
