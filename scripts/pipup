@@ -1,0 +1,7 @@
+#! /bin/bash
+
+for i in `pip list --outdated | cut -d " " -f 1 | tail +3`
+do
+    sudo pip install $i --upgrade
+done
+
