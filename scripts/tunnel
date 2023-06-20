@@ -11,6 +11,7 @@ case $1 in
     "")
         INFO=`cat $TUNNELS_LIST | tail +2 | fzf --reverse`
         [[ -z $INFO ]] && exit
+         echo $INFO | awk -F "|" '{print "Connecting to [ "$4" ] the port [ "$5" ] forwarded on [ localhost:"$2" ]"}'
          ssh -L $(echo $INFO | awk -F "|" '{print "localhost:"$2":"$4":"$5" "$3"@"$4}')
         ;;
 esac
