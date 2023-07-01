@@ -2,4 +2,4 @@
 
 CONF=$(ls /etc/openfortivpn/ | fzf --reverse)
 
-[[ ! -z $CONF ]] && echo "$CONF" && sudo openfortivpn -c "/etc/openfortivpn/$CONF" || exit 1
+[[ ! -z $CONF ]] && echo -e "Connecting to [ $CONF ]" && sudo openfortivpn -c "/etc/openfortivpn/$CONF" | ct || exit 1
