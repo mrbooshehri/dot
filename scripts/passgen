@@ -1,0 +1,15 @@
+#! /bin/bash
+
+PASSWORD_LEN=32
+_help(){
+	echo -e "Random Password Generator"
+	echo -e "  -s\t Generate password from /dev/ranodm"
+	echo -e "  -h\t Show this message"
+}
+
+case $1 in
+	-h) _help;;
+	-s) tr -dc A-Za-z0-9_ < /dev/random | head -c $PASSWORD_LEN | xargs ;;
+	*) tr -dc A-Za-z0-9_ < /dev/urandom | head -c $PASSWORD_LEN | xargs ;;
+esac
+
