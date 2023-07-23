@@ -66,6 +66,7 @@ export LESS_TERMCAP_ue="" # "0m"
 export LESS_TERMCAP_us="[4m"  # underline
 export VAGRANT_DEFAULT_PROVIDER=virtualbox
 #export VAGRANT_DEFAULT_PROVIDER=docker
+export OPENAI_KEY="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"
 
 [[ -d /.vim/spell ]] && export VIMSPELL=("$HOME/.vim/spell/*.add")
 
@@ -146,6 +147,7 @@ shopt -s histappend
 
 # --------------------------- smart prompt ---------------------------
 #                 (keeping in bashrc for portability)
+
 
 PROMPT_LONG=20
 PROMPT_MAX=95
@@ -272,6 +274,8 @@ alias '?'=duck
 alias '??'=google
 alias '???'=brave
 alias ghrepo="cd $GHREPOS"
+alias ax="axel -n 10"
+alias iwget="xsel -o | wget -i -"
 
 _have vim && alias vi=vim
 
