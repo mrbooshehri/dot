@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cat $HOME/.bash_history | fzf  --no-sort --reverse | cut -d" " -f4-
+#`cat $HOME/.bash_history | fzf --tac --no-sort --reverse | cut -d" " -f4-`

@@ -8,7 +8,7 @@
 # opens it in a new window with Firefox.
 
 
-use v5.14;
+#use v5.14;
 $_ = shift;
 
 `env > /tmp/env`
