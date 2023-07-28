@@ -231,6 +231,7 @@ __ps1() {
   [[ -n "$B" ]] && B="$w($b$B$w)"
 
   short="$u\u$w$PROMPT_AT$h\h$w:$w$dir$B$p$P$x "
+  #short="$u\u$w$PROMPT_AT$h\h$w:$w$dir$B$p$P$x "
   long="$w╔ $u\u$g$PROMPT_AT$h\h$g:$w$dir$B\n$w╚ $p$P$x "
   double="$w╔ $u\u$g$PROMPT_AT$h\h$g:$w$dir\n$w║ $B\n$w╚ $p$P$x "
 
@@ -263,6 +264,7 @@ alias view='vi -R' # which is usually linked to vim
 alias clear='printf "\e[H\e[2J"'
 alias grep="grep -P"
 alias ghrepo="cd $GHREPOS"
+alias ax="axel -n 10"
 
 #alias autoremove="sudo pacman -Rns $(pacman -Qdtq)"
 alias ..="cd .."
@@ -320,6 +322,18 @@ extr()
   fi
 }
 
+
+# ------------- colorize man page ------------------------------------
+man() {
+    LESS_TERMCAP_md=$'\e[01;31m' \
+    LESS_TERMCAP_me=$'\e[0m' \
+    LESS_TERMCAP_us=$'\e[01;32m' \
+    LESS_TERMCAP_ue=$'\e[0m' \
+    LESS_TERMCAP_so=$'\e[45;93m' \
+    LESS_TERMCAP_se=$'\e[0m' \
+
+    command man "$@"
+}
 
 # ------------- source external dependencies / completion ------------
 
