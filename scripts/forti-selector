@@ -1,5 +1,5 @@
 #! /bin/bash
 
-CONF=$(ls /etc/openfortivpn/ | fzf --reverse)
+CONF=$(ls /etc/openfortivpn/ | grep -v forti-selector | fzf --reverse)
 
 [[ ! -z $CONF ]] && echo -e "Connecting to [ $CONF ]" && sudo openfortivpn -c "/etc/openfortivpn/$CONF" | ct || exit 1
