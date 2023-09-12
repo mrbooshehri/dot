@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 url="https://google.com/search?q=$(urlencode "$*")"
 exec lynx "$url"
