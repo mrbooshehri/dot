@@ -353,3 +353,6 @@ ownsource=(
   )
 
 for i in "${ownsource[@]}"; do _source_if "$SNIPPETS/bash/$i"; done
+
+export PATH=$PATH:/usr/local/go/bin
+source <(tdl completion bash)
