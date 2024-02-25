@@ -117,11 +117,25 @@ Tab: menu-complete
 /: forward-search-history
 
 set keymap vi-insert
-Control-l: clear-screen
 "\C-a": beginning-of-line
 "\C-e": end-of-line
+"\e[1;5C": forward-word
+"\e[1;5D": backward-word
+"\e[1;5F": kill-word
+"\e[1;5G": capitalize-word
+"\e[1;5H": upcase-word
+"\e[1;5I": downcase-word
 "\e[A": history-search-backward
 "\e[B": history-search-forward
+Control-b: backward-char
+Control-d: delete-char
+Control-f: forward-char
+Control-g: abort
+Control-k: kill-line
+Control-l: clear-screen
+Control-o: operate-and-get-next
+Control-p: previous-history
+Control-w: backward-kill-word
 $endif
 
 
