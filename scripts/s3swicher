@@ -1,0 +1,10 @@
+#! /bin/bash
+``
+# Variables
+CFG_HOME=/mnt/1TB/Work/Vasl/s3fgs
+CFG=$(ls $CFG_HOME | fzf --reverse)
+
+# Exit script if the CFG is null
+test -z $CFG && exit 0
+# Replace s3cfg config
+ln -sf "$CFG_HOME/$CFG" "$HOME/.s3cfg" && echo "[ $CFG ] config replaced successfully."
