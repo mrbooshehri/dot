@@ -1,0 +1,20 @@
+#! /bin/bash
+
+CONF_HOME=$HOME/.config/tunnels
+TUNNELS_LIST=$CONF_HOME/tunnels.list
+
+! test -d $CONF_HOME && mkdir -p $CONF_HOME
+! test -f $TUNNELS_LIST && echo "|name|local_port|remote_user|remote_address|remote_port" > $TUNNELS_LIST
+
+case $1 in
+    add) vim $TUNNELS_LIST ;;
+    "")
+        INFO=`cat $TUNNELS_LIST | tail +2 | fzf --reverse`
+        [[ -z $INFO ]] && exit
+         echo $INFO | awk -F "|" '{print "Connecting to [ "$4" ] the port [ "$5" ] forwarded on [ localhost:"$2" ]"}'
+         ssh -L $(echo $INFO | awk -F "|" '{print "localhost:"$2":"$4":"$5" "$3"@"$4}')
+        ;;
+esac
+
+# with jump server
+#ssh -L 1025:127.0.0.1:1025 -J user@J_IP user@T_IP
