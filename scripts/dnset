@@ -1,0 +1,40 @@
+#! /bin/bash
+
+DNS_LIST=$(cat <<EOF
+google|8.8.8.8
+google|8.8.4.4
+cloudflare|1.1.1.1
+cloudflare|1.0.0.1
+openDNS|208.67.222.222
+openDNS|208.67.220.220
+shecan|185.51.200.2
+shecan|178.22.122.100
+403.online|10.202.10.202
+403.online|10.202.10.102
+begzar|185.55.226.26
+begzar|185.55.225.25
+hostiran|172.29.2.100
+hostiran|172.29.0.100
+radar.game|10.202.10.10
+radar.game|10.202.10.11
+pishgaman|5.202.100.100
+pishgaman|5.202.100.101
+electrotm|78.157.42.100
+electrotm|78.157.42.101
+vanilla|185.51.200.1
+vanilla|185.51.200.2
+EOF
+)
+
+DNS=$(echo -e "$DNS_LIST" | fzf --reverse -m | cut -d '|' -f2)
+
+[[ -z $DNS ]] && exit 0
+
+readarray -t dns_addresses <<< "$DNS"
+
+sudo truncate -s 0 /etc/resolv.conf
+
+for dns in "${dns_addresses[@]}"; do
+    echo "nameserver $dns" | sudo tee -a /etc/resolv.conf > /dev/null
+done && echo -e "nameservers added successfully."; cat /etc/resolv.conf
+
