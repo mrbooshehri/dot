@@ -1,0 +1,20 @@
+#! /bin/bash
+
+OPTION=$(echo -e "Vasl\nGSB\nITO" | fzf --reverse)
+test -z $OPTION && exit 1
+
+case $OPTION in
+    "Vasl")
+        COMPOSE_PATH=/home/mhmd/MEGA/Work/Vasl/Kerio-VPN/Vasl_Kerio/docker-compose.yaml
+        ;;
+    "GSB")
+        COMPOSE_PATH=/home/mhmd/MEGA/Work/Vasl/Kerio-VPN/GSB_Kerio/docker-compose.yaml
+        ;;
+    "ITO")
+        COMPOSE_PATH=/home/mhmd/MEGA/Work/Vasl/Kerio-VPN/ITO_Kerio/docker-compose.yaml
+        ;;
+    "*") exit 1 
+        ;;
+esac
+
+docker compose -f $COMPOSE_PATH up | ct

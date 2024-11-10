@@ -1,0 +1,4 @@
+#!/bin/bash
+
+PRIVATE_KEY=/home/mhmd/.ssh/vulter
+ssh -i $PRIVATE_KEY -TND 4711 test2@95.179.140.173 -p 2200
