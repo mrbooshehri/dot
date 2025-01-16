@@ -9,6 +9,8 @@ ANSWER=$(echo -e "Yes\nNo" | fzf --reverse --prompt="Open in browser? ")
 if [[ $ANSWER == "No" ]]; then
 
     MOVIE=$(curl -s $URL | grep "download target" | pup 'a attr{href}' | grep ".mkv" | fzf --reverse --prompt="Select a movie: ")
+    [[ -z $MOVIE ]] && exit
+    vlc $MOVIE
 else
 
     xdg-open $URL
