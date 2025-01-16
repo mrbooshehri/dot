@@ -1,0 +1,15 @@
+#! /bin/bash
+
+SEARCH_TERM=$*
+
+URL=$(curl -s https://www.myf2m.com/?s=${SEARCH_TERM// /%20}| pup 'article' | pup 'a attr{href}' | grep -v genres | fzf --reverse --prompt="Search for a movie: ")
+
+[[ -z $URL ]] && exit
+ANSWER=$(echo -e "Yes\nNo" | fzf --reverse --prompt="Open in browser? ")
+if [[ $ANSWER == "No" ]]; then
+
+    MOVIE=$(curl -s $URL | grep "download target" | pup 'a attr{href}' | grep ".mkv" | fzf --reverse --prompt="Select a movie: ")
+else
+
+    xdg-open $URL
+fi
